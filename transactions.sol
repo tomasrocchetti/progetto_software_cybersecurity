@@ -11,7 +11,7 @@ struct Product {
     uint isProcessed;   // 0 se è una materia prima, 1 se è un derivato
     string productsUsedToProcessIDs;    // se è un derivato elencare tutti gli ID delle materie prime usate, deve essere un array
     uint quantityForUsedProducts;   // per ogni ID di materia prima indicare la quantità utilizzata, anche questo deve essere un array
-    uint quantity;
+    uint quantity;  //quantità di prodotto, utile anche nel caso in cui per un prodotto finale venga usata solo una parte di un lotto di materia prima
 }
 
 
@@ -22,4 +22,10 @@ Product[] public products;
 function addProduct(string _name, string _ID,  uint _gCO2, uint _isProcessed, string _productsUsedToProcessID, uint _quantityForUsedProducts, uint _quantity) {
         products.push(Product(_name, _ID, _gCO2, _isProcessed, _productsUsedToProcessID, _quantityForUsedProducts, _quantity));
     }
-}    
+}  
+
+/*
+- da aggiungere una funzione per la ricerca dato l'ID
+- productsUsedToProcessIDs deve essere un array
+- quantityForUsedProducts deve essere un array
+*/
