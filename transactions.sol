@@ -32,7 +32,9 @@ function addProduct(string _name, string _ID,  uint _gCO2, uint _isProcessed, st
     }
     
     
-    
+function getProductByID(string _ID) view public returns (string){
+    return (Products[_ID].name);
+    }
     
 }  
 
