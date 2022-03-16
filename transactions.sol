@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity >=0.4.0 <0.9.0;
+pragma solidity >=0.8.0 <0.9.0;
 
 contract Transactions {
 
@@ -25,11 +25,11 @@ mapping (string => Product) Products;
 string[] public productIDs;
 
 // funzione per aggiungere una nuova transazione (ovvero una nuova materia prima o un nuovo prodotto frutto di lavorazione)
-function addProduct(string memory _name, string calldata _ID,  uint _gCO2, uint _isProcessed, string memory _productsUsedToProcessID, uint _quantityForUsedProducts, uint _quantity) {
+function addProduct(string memory _name, string calldata _ID,  uint _gCO2, uint _isProcessed, string memory _productsUsedToProcessID, uint _quantityForUsedProducts, uint _quantity) public {
        
        // si assicura che siano soltanto produttore e trasformatore ad aggiungere nuovi prodotti o materie prime, il cliente non può
        if(msg.sender == produttore || msg.sender == trasformatore){
-        Product prod = Products[_ID];
+        Product storage prod = Products[_ID];
         prod.name = _name;
         prod.ID = _ID;
         prod.gCO2=_gCO2;
