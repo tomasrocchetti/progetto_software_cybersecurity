@@ -4,6 +4,11 @@ pragma solidity >=0.4.0 <0.9.0;
 
 contract Transactions {
 
+// indirizzi per trasformatore, cliente e produttore
+address produttore;
+address trasformatore;
+address cliente;
+
 struct Product {
     string name;    // nome del prodotto
     string ID;  // identificativo univoco del prodotto (anche numero di lotto)
@@ -20,12 +25,11 @@ mapping (string => Product) Products;
 string[] public productIDs;
 
 // funzione per aggiungere una nuova transazione (ovvero una nuova materia prima o un nuovo prodotto frutto di lavorazione)
-function addProduct(string _name, string _ID,  uint _gCO2, uint _isProcessed, string _productsUsedToProcessID, uint _quantityForUsedProducts, uint _quantity) {
+function addProduct(string memory _name, string calldata _ID,  uint _gCO2, uint _isProcessed, string memory _productsUsedToProcessID, uint _quantityForUsedProducts, uint _quantity) {
        
        // si assicura che siano soltanto produttore e trasformatore ad aggiungere nuovi prodotti o materie prime, il cliente non può
        if(msg.sender == produttore || msg.sender == trasformatore){
-        var prod = Products[_ID];    // deprecata, non funziona
-            // deprecata, non funziona piu sulle versioni nuove di solidity =(
+        Product prod = Products[_ID];
         prod.name = _name;
         prod.ID = _ID;
         prod.gCO2=_gCO2;
@@ -34,12 +38,12 @@ function addProduct(string _name, string _ID,  uint _gCO2, uint _isProcessed, st
         prod.quantityForUsedProducts = _quantityForUsedProducts;
         prod.quantityForUsedProducts = _quantity;
 
-        productIDs.push(_ID) -1;
+        productIDs.push(_ID);
        }
     }
     
     
-function getProductByID(string _ID) view public returns (string, string, uint, uint, string, uint, uint){
+function getProductByID(string memory _ID) view public returns (string memory, string memory, uint, uint, string memory, uint, uint){
     return (Products[_ID].name,
     Products[_ID].ID,
     Products[_ID].gCO2,
