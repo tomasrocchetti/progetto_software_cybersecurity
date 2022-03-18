@@ -7,14 +7,18 @@ import "https://github.com/0xcert/ethereum-erc721/src/contracts/ownership/ownabl
 
 contract mNFT is NFTokenMetadata, Ownable {
  
-  constructor() {
-    nftName = "Carbon Footprint";
-    nftSymbol = "CBF";
-  }
- 
-  function mint(address _to, uint256 _tokenId, string calldata _uri) external onlyOwner {
-    super._mint(_to, _tokenId);
-    super._setTokenUri(_tokenId, _uri);
-  }
+    constructor() {
+      nftName = "Carbon Footprint";
+      nftSymbol = "CBF";
+    }
+
+    function mint(address _to, uint256 _tokenId, string calldata _uri) external onlyOwner {
+      super._mint(_to, _tokenId);
+      super._setTokenUri(_tokenId, _uri);
+    }
+  
+      function burn( uint256 _tokenId) public {
+        super._burn(_tokenId);
+    }
  
 }
