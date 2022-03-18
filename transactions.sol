@@ -40,6 +40,9 @@ function addProduct(string memory _name, string calldata _ID,  uint _gCO2, uint 
 
         productIDs.push(_ID);
        }
+       else{
+        // errore, non puoi completare l'operazione
+       }
     }
     
     
