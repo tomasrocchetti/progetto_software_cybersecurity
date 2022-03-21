@@ -51,7 +51,26 @@ function addProdottoTrasformato(string memory _name, string calldata _ID,  uint 
         Product storage prod = Products[_ID];
         prod.name = _name;
         prod.ID = _ID;
-        prod.gCO2=_gCO2_production+(getCO2ByID(_ID)*_quantityForUsedProducts);
+                
+        // split della stringa CSV contentente i prodotti usati in un array
+        strings.slice memory stringSlice = _productsUsedToProcessID.toSlice();
+        strings.slice memory delimeterSlice = "-".toSlice();
+        string[] memory _productsUsedToProcessIDArray = new string[](stringSlice.count(delimeterSlice));
+        for (uint i = 0; i < _productsUsedToProcessIDArray.length; i++) {
+           _productsUsedToProcessIDArray[i] = stringSlice.split(delimeterSlice).toString();
+
+        }
+        
+        uint sommaCO2 = 0;
+
+        // gli IDs devono essere separati da "-", ci va anche un "-" alla fine
+        // calcolo del carbon footprint
+        for (uint i = 0; i< _productsUsedToProcessIDArray.length; i++){
+            sommaCO2 = sommaCO2 + getCO2ByID(_productsUsedToProcessIDArray[i]);
+        }
+        sommaCO2 = sommaCO2 +_gCO2_production;
+        
+        prod.gCO2=sommaCO2;
         prod.isProcessed = true;
         prod. productsUsedToProcessIDs = _productsUsedToProcessID;
         prod.quantityForUsedProducts = _quantityForUsedProducts;
