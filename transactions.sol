@@ -85,10 +85,14 @@ function getProductByID(string memory _ID) view public returns (string memory, s
         return (exist);
     }
 
+function listItems() view public returns (string memory){
+        string memory ret;
+        for (uint i = 0; i < productIDs.length; i++) {
+            ret = string( abi.encodePacked(ret, "\n", productIDs[i], " - ", Strings.toString(getCO2ByID(productIDs[i]))));
+        }
+        return ret;
+    }
     
 }  
 
-/*
-- productsUsedToProcessIDs deve essere un array
-- quantityForUsedProducts deve essere un array
-*/
+* da fare parsing di productsUsedToProcessIDs, CSV
