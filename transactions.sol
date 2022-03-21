@@ -66,13 +66,7 @@ function addProdottoTrasformato(string memory _name, string calldata _ID,  uint 
     
     
 function getProductByID(string memory _ID) view public returns (string memory, string memory, uint, bool, string memory, uint, uint){
-    return (Products[_ID].name,
-    Products[_ID].ID,
-    Products[_ID].gCO2,
-    Products[_ID].isProcessed,
-    Products[_ID].productsUsedToProcessIDs,
-    Products[_ID].quantityForUsedProducts,
-    Products[_ID].quantity);
+    return (Products[_ID].name, Products[_ID].ID, Products[_ID].gCO2, Products[_ID].isProcessed, Products[_ID].productsUsedToProcessIDs, Products[_ID].quantityForUsedProducts, Products[_ID].quantity);
     }
     
     function idExist(string memory _ID) view public returns (bool){
@@ -95,4 +89,4 @@ function listItems() view public returns (string memory){
     
 }  
 
-* da fare parsing di productsUsedToProcessIDs, CSV
+// da fare parsing di productsUsedToProcessIDs, CSV
