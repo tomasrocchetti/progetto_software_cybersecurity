@@ -75,6 +75,17 @@ function getProductByID(string memory _ID) view public returns (string memory, s
     Products[_ID].quantity);
     }
     
+    function idExist(string memory _ID) view public returns (bool){
+        bool exist = true;
+        if(keccak256(abi.encodePacked(Products[_ID].ID)) == keccak256(abi.encodePacked(""))){
+            exist = false;
+        } else{
+            exist = true;
+        }
+        return (exist);
+    }
+
+    
 }  
 
 /*
