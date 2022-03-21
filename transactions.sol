@@ -93,14 +93,14 @@ function getProductByID(string memory _ID) view public returns (string memory, s
     return (Products[_ID].name, Products[_ID].ID, Products[_ID].gCO2, Products[_ID].isProcessed, Products[_ID].productsUsedToProcessIDs, Products[_ID].quantityForUsedProducts, Products[_ID].quantity);
     }
     
-    function idExist(string memory _ID) view public returns (bool){
-        bool exist = true;
-        if(keccak256(abi.encodePacked(Products[_ID].ID)) == keccak256(abi.encodePacked(""))){
-            exist = false;
-        } else{
-            exist = true;
-        }
-        return (exist);
+function idExist(string memory _ID) view public returns (bool){
+     bool exist = true;
+     if(keccak256(abi.encodePacked(Products[_ID].ID)) == keccak256(abi.encodePacked(""))){
+         exist = false;
+     } else{
+         exist = true;
+     }
+     return (exist);
     }
 
 function listItems() view public returns (string memory){
