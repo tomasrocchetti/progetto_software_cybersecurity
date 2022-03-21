@@ -28,7 +28,7 @@ string[] public productIDs;
 function addMateriaPrima(string memory _name, string calldata _ID,  uint _gCO2, uint _quantity) public {
        
        // si assicura che siano soltanto produttore e trasformatore ad aggiungere nuovi prodotti o materie prime, il cliente non può
-       if(msg.sender == produttore){
+       if(msg.sender == produttore && !idExist(_ID)){
         Product storage prod = Products[_ID];
         prod.name = _name;
         prod.ID = _ID;
@@ -47,7 +47,7 @@ function addMateriaPrima(string memory _name, string calldata _ID,  uint _gCO2, 
 function addProdottoTrasformato(string memory _name, string calldata _ID,  uint _gCO2_production, string memory _productsUsedToProcessID, uint _quantityForUsedProducts, uint _quantity) public {
        
        // si assicura che siano soltanto produttore e trasformatore ad aggiungere nuovi prodotti o materie prime, il cliente non può
-       if(msg.sender == trasformatore){
+       if(msg.sender == trasformatore && !idExist(_ID)){
         Product storage prod = Products[_ID];
         prod.name = _name;
         prod.ID = _ID;
