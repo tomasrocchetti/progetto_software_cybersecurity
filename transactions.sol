@@ -29,6 +29,12 @@ mapping (string => Product) Products;
 
 string[] public productIDs;
 
+constructor(address produttore_, address trasformatore_, address cliente_) {
+        produttore = produttore_;
+        trasformatore = trasformatore_;
+        cliente = cliente_;
+    }
+ 
 // funzione per aggiungere una nuova transazione (ovvero una nuova materia prima o un nuovo prodotto frutto di lavorazione)
 function addMateriaPrima(string memory _name, string calldata _ID,  uint _gCO2, uint _quantity) public {
        
