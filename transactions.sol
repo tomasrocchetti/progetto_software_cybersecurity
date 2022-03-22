@@ -99,6 +99,10 @@ function getProductByID(string memory _ID) view public returns (string memory, s
     return (Products[_ID].name, Products[_ID].ID, Products[_ID].gCO2, Products[_ID].isProcessed, Products[_ID].productsUsedToProcessIDs, Products[_ID].quantityForUsedProducts, Products[_ID].quantity);
     }
     
+function getCO2ByID(string memory _ID) view public returns (uint){
+    return Products[_ID].gCO2;
+    }
+    
 function idExist(string memory _ID) view public returns (bool){
      bool exist = true;
      if(keccak256(abi.encodePacked(Products[_ID].ID)) == keccak256(abi.encodePacked(""))){
