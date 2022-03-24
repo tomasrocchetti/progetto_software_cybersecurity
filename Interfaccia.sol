@@ -10,6 +10,8 @@ interface interfacciaFornitore {
 
     //funzione per inserire materie prime, lo puo fare solamente il fornitore
     function addMateriaPrima(string memory _name, string calldata _ID,  uint _gCO2, uint _quantity) private;
+    
+    function getCO2ByID(string memory _ID) view public returns (uint);
 
 }
 
