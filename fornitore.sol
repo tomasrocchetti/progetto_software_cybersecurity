@@ -24,9 +24,9 @@ struct Product {
     }
 
 // mapping della lista di prodotti
-mapping (string => Product) Products;
+mapping (string => Product) Products public;
 
-string[] public productIDs;
+string[] public productIDs public;
 
 constructor(address produttore_) {
         produttore = produttore_;
