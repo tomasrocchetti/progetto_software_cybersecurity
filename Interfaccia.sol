@@ -6,15 +6,10 @@ pragma solidity >=0.7.0 <0.9.0;
 interface interfacciaFornitore {
 
     //funzione che restituisce le materie prime del fornitore
-    function getMaterie () external view returns (
-        string name,
-        uint co2,
-        uint id,
-        uint quantity
-    );
+    function getMateriaById(string memory _ID) view public returns (string memory, string memory, uint, bool, string memory, uint, uint);
 
     //funzione per inserire materie prime, lo puo fare solamente il fornitore
-    function setMateria (string name, uint co2, uint id, uint quantity) external;
+    function addMateriaPrima(string memory _name, string calldata _ID,  uint _gCO2, uint _quantity) private;
 
 }
 
