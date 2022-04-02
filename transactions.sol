@@ -64,6 +64,9 @@ function addProdottoTrasformato(string memory _name, string calldata _ID,  uint 
        
        // si assicura che sia soltanto il trasformatore ad aggiungere nuovi prodotti 
        // if(msg.sender == trasformatore && !idExist(_ID))
+       require(msg.sender == trasformatore);
+       require(!idExist(_ID));
+       
         Product storage prod = Products[_ID];
         prod.name = _name;
         prod.ID = _ID;
