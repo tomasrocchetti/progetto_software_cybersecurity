@@ -29,6 +29,9 @@ mapping (string => Product) Products;
 
 string[] public productIDs;
 
+event newMateriaPrima (string name, string ID, uint gCO2, uint quantity);
+event newProdottoTrasformato (string name, string ID, uint sommaCO2, string productsUsedToProcessID, uint quantityForUsedProducts, uint quantity);
+
 constructor(address produttore_, address trasformatore_, address cliente_) {
         produttore = produttore_;
         trasformatore = trasformatore_;
@@ -38,8 +41,11 @@ constructor(address produttore_, address trasformatore_, address cliente_) {
 // funzione per aggiungere una nuova transazione (ovvero una nuova materia prima o un nuovo prodotto frutto di lavorazione)
 function addMateriaPrima(string memory _name, string calldata _ID,  uint _gCO2, uint _quantity) public {
        
-       // si assicura che siano soltanto produttore e trasformatore ad aggiungere nuovi prodotti o materie prime, il cliente non può
-       if(msg.sender == produttore && !idExist(_ID)){
+       // si assicura che sia soltanto il produttore ad aggiungere nuovi materie prime
+       require(msg.sender == produttore);
+       require(!idExist(_ID));
+       
+      // if(msg.sender == produttore && !idExist(_ID))
         Product storage prod = Products[_ID];
         prod.name = _name;
         prod.ID = _ID;
@@ -48,17 +54,16 @@ function addMateriaPrima(string memory _name, string calldata _ID,  uint _gCO2, 
         prod.quantityForUsedProducts = _quantity;
 
         productIDs.push(_ID);
-       }
-       else{
-        // errore, non puoi completare l'operazione
-       }
+       
+        emit newMateriaPrima(_name, _ID, _gCO2, _quantity);
+
     }
 
 // funzione per aggiungere una nuova transazione (ovvero una nuova materia prima o un nuovo prodotto frutto di lavorazione)
 function addProdottoTrasformato(string memory _name, string calldata _ID,  uint _gCO2_production, string memory _productsUsedToProcessID, uint _quantityForUsedProducts, uint _quantity) public {
        
-       // si assicura che siano soltanto produttore e trasformatore ad aggiungere nuovi prodotti o materie prime, il cliente non può
-       if(msg.sender == trasformatore && !idExist(_ID)){
+       // si assicura che sia soltanto il trasformatore ad aggiungere nuovi prodotti 
+       // if(msg.sender == trasformatore && !idExist(_ID))
         Product storage prod = Products[_ID];
         prod.name = _name;
         prod.ID = _ID;
@@ -88,10 +93,10 @@ function addProdottoTrasformato(string memory _name, string calldata _ID,  uint 
         prod.quantityForUsedProducts = _quantity;
 
         productIDs.push(_ID);
-       }
-       else{
-        // errore, non puoi completare l'operazione
-       }
+       
+        emit newProdottoTrasformato(_name, _ID, sommaCO2, _productsUsedToProcessID, _quantityForUsedProducts, _quantity);
+
+      
     }
     
     
