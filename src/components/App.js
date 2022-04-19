@@ -35,25 +35,13 @@ class App extends Component {
     const networkData = Transactions.networks[networkId]
     if(networkData) {
       const marketplace = web3.eth.Contract(Transactions.abi, networkData.address)
-      this.setState({ marketplace })
-
-      
-      this.setState({ loading: false})
+      const res = await marketplace.methods.getCO2ByID('6667').call();
+    window.alert(res)
+              this.setState({ marketplace })
     } else {
       window.alert('Marketplace contract not deployed to detected network.')
     }
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      account: '',
-      productCount: 0,
-      products: [],
-      loading: true
-    }
-
-    this.addMateriaPrima = this.addMateriaPrima.bind(this)
+    
   }
 
   addMateriaPrima(name, id, gco2, quantity) {
@@ -63,26 +51,79 @@ class App extends Component {
       this.setState({ loading: false })
     })
   }
-  
+    
 
   
 
-  render() {
+   render() {
     return (
-      <div>
-        <Navbar account={this.state.account} />
-        <div className="container-fluid mt-5">
-          <div className="row">
-            <main role="main" className="col-lg-12 d-flex">
-              { this.state.loading
-                ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
-                : <Main
-                  products={this.state.products}
-                  addMateriaPrima={this.addMateriaPrima}/>
-              }
-            </main>
+    
+      <div id="content">
+        <h1>Aggiungi un Prodotto</h1>
+        <form onSubmit={(event) => {
+          event.preventDefault()
+          const name = this.productName.value
+          const id = this.productID.value
+          const gco2 = this.productCo2.value
+          const quantity = this.productQty.value
+          this.addMateriaPrima(name, id, gco2, quantity)
+          let result;
+          
+        }}>
+          <div className="form-group mr-sm-2">
+            <input
+              id="productName"
+              type="text"
+              ref={(input) => { this.productName = input }}
+              className="form-control"
+              placeholder="Nome"
+              required />
           </div>
-        </div>
+          <div className="form-group mr-sm-2">
+            <input
+              id="productPrice"
+              type="text"
+              ref={(input) => { this.productID = input }}
+              className="form-control"
+              placeholder="ID"
+              required />
+          </div>
+         <div className="form-group mr-sm-2">
+            <input
+              id="productCo2"
+              type="text"
+              ref={(input) => { this.productCo2 = input }}
+              className="form-control"
+              placeholder="CO2 (g)"
+              required />
+          </div>
+        <div className="form-group mr-sm-2">
+            <input
+              id="productQuantity"
+              type="text"
+              ref={(input) => { this.productQty = input }}
+              className="form-control"
+              placeholder="Quantità"
+              required />
+          </div>
+          <button type="submit" className="btn btn-primary">aggiungi</button>
+        </form>
+                <p>&nbsp;</p>
+        <h2>Buy Product</h2>
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Owner</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="productList">
+        <th scope="col"></th>
+          </tbody>
+        </table>
       </div>
     );
   }
