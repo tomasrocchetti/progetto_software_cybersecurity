@@ -55,7 +55,7 @@ function addMateriaPrima(string memory _name, string calldata _ID,  uint _gCO2, 
         productIDs.push(_ID);
        
         emit newMateriaPrima(_name, _ID, _gCO2, _quantity);
-
+        //_mint(produttore, _ID);
     }
 
 // funzione per aggiungere una nuova transazione (ovvero una nuova materia prima o un nuovo prodotto frutto di lavorazione)
@@ -85,7 +85,7 @@ function addProdottoTrasformato(string memory _name, string calldata _ID,  uint 
         productIDs.push(_ID);
        
         emit newProdottoTrasformato(_name, _ID, sommaCO2, _productsUsedToProcessID, _quantityForUsedProducts, _quantity);
-
+        //_mint(trasformatore, _ID);
       
     }
     
