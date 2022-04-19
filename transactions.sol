@@ -3,11 +3,10 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 import "@openzeppelin/contracts/utils/Strings.sol";
-import "./strings.sol";
 
 contract Transactions {
 
-using strings for *;
+
 
 // indirizzi per trasformatore, cliente e produttore
 address produttore;
