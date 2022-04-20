@@ -37,13 +37,22 @@ class App extends Component {
       const marketplace = web3.eth.Contract(Transactions.abi, networkData.address)
       const len = await marketplace.methods.getLen().call()
       window.alert("numero prodotti: " +len)
+      const prd = {
+          name: "",
+          id: "",
+          gco2: 0,
+          quantity: 0
+          };
       
       for(var i=0; i<len;i++){
-          const productIndex = await marketplace.methods.productIDs(i).call();
-          listOfProducts[i] = await marketplace.methods.getCO2ByID(productIndex.toString()).call();
-          //aggiungere altri array per nomi, id e quantità
-          window.alert(productIndex)
+          const mproductID = await marketplace.methods.productIDs(i).call();
+          const mgCO2 = await marketplace.methods.getCO2ByID(mproductID.toString()).call();
+          const mprodQty = await marketplace.methods.getQtyByID(mproductID.toString()).call();
+          const mprodName = await marketplace.methods.getNameByID(mproductID.toString()).call();
+          const prd ={name:mprodName, id: mproductID, gco2: mgCO2, quantity: mprodQty };
+          this.state.listOfProducts[i] = prd
       }
+      
       
       this.setState({ marketplace })
     } else {
@@ -116,22 +125,31 @@ class App extends Component {
           </div>
           <button type="submit" className="btn btn-primary">aggiungi</button>
         </form>
-                <p>&nbsp;</p>
+        <p>&nbsp;</p>
         <h2>Buy Product</h2>
         <table className="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Price</th>
-              <th scope="col">Owner</th>
+              <th scope="col">ID</th>
+              <th scope="col">Nomw</th>
+              <th scope="col">Co2 (g)</th>
+              <th scope="col">Quantità</th>
               <th scope="col"></th>
             </tr>
           </thead>
-          <tbody id="productList">
-        <th scope="col"></th>
+            <tbody id="productList">
+            { this.state.listOfProducts.map((product, key) => {
+              return(
+                <tr key={key}>
+                  <th scope="row">{product.id.toString()}</th>
+                  <td>{product.name.toString()}</td>
+                  <td>{product.gco2.toString()}</td>
+                  <td>{product.quantity.toString()}</td>
+                </tr>
+              )
+            })}
           </tbody>
-        </table>
+        </table> 
       </div>
     );
   }
