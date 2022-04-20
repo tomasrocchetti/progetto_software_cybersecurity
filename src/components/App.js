@@ -41,7 +41,6 @@ class App extends Component {
         const networkData = Transactions.networks[networkId]
         if(networkData) {
             const marketplace = web3.eth.Contract(Transactions.abi, networkData.address)
-            const res = await marketplace.methods.getCO2ByID('6667').call()
             const len = await marketplace.methods.getLen().call()
             window.alert("numero prodotti: " +len)
             const prd = {name: "", id: "", gco2: 0, quantity: 0 };
