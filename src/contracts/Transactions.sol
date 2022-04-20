@@ -93,6 +93,10 @@ function getCO2ByID(string memory _ID) view public returns (uint){
     return Products[_ID].gCO2;
     }
     
+function getLen() view public returns (uint){
+    return productIDs.length;
+    }
+    
     
 function idExist(string memory _ID) view public returns (bool){
      bool exist = true;
