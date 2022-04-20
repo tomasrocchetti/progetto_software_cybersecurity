@@ -6,6 +6,10 @@
 
 ## Entro 6 maggio
 - Gestione Errori
+  - inserimento dati non corretti nell'array
+  - ~~inserimento lettere al posto di uint~~
+  - ID gia esistente (c'è gia require su contract)
+  - l'utente non ha abbastanza permessi (c'è gia require su contract)
 
 ## Entro 12 maggio
 - ~~Creare il JS per il Trasformatore (come produttore ma con piu voci)~~
