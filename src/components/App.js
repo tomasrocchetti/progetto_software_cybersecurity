@@ -108,7 +108,7 @@ class App extends Component {
          <div className="form-group mr-sm-2">
             <input
               id="productCo2"
-              type="text"
+              type="number"
               ref={(input) => { this.productCo2 = input }}
               className="form-control"
               placeholder="CO2 (g)"
@@ -117,7 +117,7 @@ class App extends Component {
         <div className="form-group mr-sm-2">
             <input
               id="productQuantity"
-              type="text"
+              type="number"
               ref={(input) => { this.productQty = input }}
               className="form-control"
               placeholder="Quantità"
