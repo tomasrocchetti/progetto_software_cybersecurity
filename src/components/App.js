@@ -4,7 +4,6 @@ import logo from '../logo.png';
 import './App.css';
 import Transactions from '../abis/Transactions.json'
 import Navbar from './Navbar'
-import Main from './Main'
 
 class App extends Component {
 
