@@ -30,7 +30,6 @@ string[] public productIDs;
 
 event newMateriaPrima (string name, string ID, uint gCO2, uint quantity);
 event newProdottoTrasformato (string name, string ID, uint sommaCO2, string[] productsUsedToProcessID, uint[] quantityForUsedProducts, uint quantity);
-event returnCO2 (uint gCO2);
 
 
  
@@ -94,9 +93,6 @@ function getCO2ByID(string memory _ID) view public returns (uint){
     return Products[_ID].gCO2;
     }
     
-function getCO2ByIDEvent(string memory _ID)  public{
-    emit returnCO2(Products[_ID].gCO2);
-    }
     
 function idExist(string memory _ID) view public returns (bool){
      bool exist = true;
