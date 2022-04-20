@@ -45,6 +45,7 @@ function addMateriaPrima(string memory _name, string calldata _ID,  uint _gCO2, 
         prod.name = _name;
         prod.ID = _ID;
         prod.gCO2=_gCO2;
+        prod.quantity = _quantity;
         prod.isProcessed = false;
 
         productIDs.push(_ID);
