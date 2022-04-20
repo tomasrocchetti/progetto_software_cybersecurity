@@ -61,8 +61,8 @@ class App extends Component {
         this.state.marketplace.methods.addMateriaPrima(name, id, gco2, quantity).send({ from: this.state.account }).once('receipt', (receipt) => { })
     }
   
-    addProdottoTrasformato(name, id, gco2, usedProd, usedQty, quantity) {
-        this.state.marketplace.methods.addProdottoTrasformato(name, id, gco2, usedProd, usedQty, quantity).send({ from: this.state.account }).once('receipt', (receipt) => {})
+    addProdottoTrasformato(name, id, gco2, usedProd, quantity) {
+        this.state.marketplace.methods.addProdottoTrasformato(name, id, gco2, usedProd, quantity).send({ from: this.state.account }).once('receipt', (receipt) => {})
     }
 
     async getCO2ByID(id){
@@ -177,8 +177,7 @@ class App extends Component {
                 const gco2 = this.tproductCo2.value
                 const quantity = this.tproductQty.value
                 const listUsedProd = this.tproductUsedList.value.toString().split(',')
-                const listQtyProd = this.tproductQtyList.value.toString().split(',')
-                this.addProdottoTrasformato(name, id, gco2, listUsedProd, listQtyProd, quantity)
+                this.addProdottoTrasformato(name, id, gco2, listUsedProd, quantity)
             }}>
         <div className="form-group mr-sm-2">
             <input
@@ -223,15 +222,6 @@ class App extends Component {
                 ref={(input) => { this.tproductUsedList = input }}
                 className="form-control"
                 placeholder="Lista Prodotti usati per la trasformazione"
-            required />
-        </div>
-        <div className="form-group mr-sm-2">
-            <input
-                id="productPrice"
-                type="text"
-                ref={(input) => { this.tproductQtyList = input }}
-                className="form-control"
-                placeholder="Quantità prodotti usati per la trasformazione"
             required />
         </div>
         <button type="submit" className="btn btn-primary">aggiungi</button>
