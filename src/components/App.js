@@ -126,7 +126,7 @@ class App extends Component {
           <button type="submit" className="btn btn-primary">aggiungi</button>
         </form>
         <p>&nbsp;</p>
-        <h2>Buy Product</h2>
+        <h2>Lista prodotti</h2>
         <table className="table">
           <thead>
             <tr>
