@@ -9,7 +9,7 @@
 
 ## Entro 12 maggio
 - ~~Creare il JS per il Trasformatore (come produttore ma con piu voci)~~
-- Creare il JS per il Cliente (lista piu pulsante per visualizzare info prodotto da ID)
+- ~~Creare il JS per il Cliente (lista piu pulsante per visualizzare info prodotto da ID~~
 
 - Fine
 
