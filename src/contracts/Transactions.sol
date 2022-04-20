@@ -97,6 +97,14 @@ function getLen() view public returns (uint){
     return productIDs.length;
     }
     
+function getNameByID(string memory _ID) view public returns (string memory){
+    return Products[_ID].name;
+    }
+    
+function getQtyByID(string memory _ID) view public returns (uint){
+    return Products[_ID].quantity;
+    }
+    
     
 function idExist(string memory _ID) view public returns (bool){
      bool exist = true;
