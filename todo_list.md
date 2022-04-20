@@ -16,4 +16,4 @@
 ### Stato attuale
 - Contratto funzionante senza la gestione dei token, il costruttore non viene considerato, l'indirizzo del produttore è hardcoded nel contratto.
 - L'interfaccia web è in grado di scrivere i dati della matteria prima sulla blockchain. 
-- ~~Il codice JS è in grado di leggere dalla blockchain ma non è in grado di mostrarli sull'interfaccia web~~
+- Il codice JS è in grado di leggere dalla blockchain ~~ma non è in grado di mostrarli sull'interfaccia web~~
