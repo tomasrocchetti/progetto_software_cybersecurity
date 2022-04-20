@@ -2,8 +2,9 @@
 - ~~Caricare i valori dei prodotti negli array~~
 - ~~Caricarre i valori degli array in una tabella che elenca i prodotti~~
 - Refresh pagina after addMateriaPrima
+- passare indirizzi al costruttore
 
-## Entro 8 maggio
+## Entro 6 maggio
 - Gestione Errori
 
 ## Entro 12 maggio
