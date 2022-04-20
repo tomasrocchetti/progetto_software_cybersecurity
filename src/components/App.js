@@ -35,9 +35,17 @@ class App extends Component {
     const networkData = Transactions.networks[networkId]
     if(networkData) {
       const marketplace = web3.eth.Contract(Transactions.abi, networkData.address)
-      const res = await marketplace.methods.getCO2ByID('6667').call();
-    window.alert(res)
-              this.setState({ marketplace })
+      const len = await marketplace.methods.getLen().call()
+      window.alert("numero prodotti: " +len)
+      
+      for(var i=0; i<len;i++){
+          const productIndex = await marketplace.methods.productIDs(i).call();
+          listOfProducts[i] = await marketplace.methods.getCO2ByID(productIndex.toString()).call();
+          //aggiungere altri array per nomi, id e quantità
+          window.alert(productIndex)
+      }
+      
+      this.setState({ marketplace })
     } else {
       window.alert('Marketplace contract not deployed to detected network.')
     }
