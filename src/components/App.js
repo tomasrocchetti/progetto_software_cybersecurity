@@ -61,6 +61,8 @@ class App extends Component {
         this.state.marketplace.methods.addMateriaPrima(name, id, gco2, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
             window.location.reload();
+        }).on('confirmation', (confirmation) => {
+            window.alert('La transazione è stata completata');
         });
     }
   
@@ -68,6 +70,8 @@ class App extends Component {
         this.state.marketplace.methods.addProdottoTrasformato(name, id, gco2, usedProd, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
             window.location.reload();
+        }).on('confirmation', (confirmation) => {
+            window.alert('La transazione è stata completata');
         });
     }
 
