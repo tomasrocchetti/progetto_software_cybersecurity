@@ -88,7 +88,7 @@ class App extends Component {
     }
 
     async getCO2ByID(id){
-        const gCO2 =  await this.state.marketplace.methods.getCO2ByID(id.toString()).call();
+        const gCO2 =  await this.state.marketplace.methods.getCO2ByID(id).call();
         if(gCO2 == 0){
             window.alert('Il prodotto con ID "' + id + '" non esiste');
         } else{
