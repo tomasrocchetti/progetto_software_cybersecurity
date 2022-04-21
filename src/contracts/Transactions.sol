@@ -87,6 +87,14 @@ function addProdottoTrasformato(string memory _name, uint _ID,  uint _gCO2_produ
       
     }
     
+function getOwner(uint tokenId) view public returns (address){
+    if(_exists(tokenId)){
+        return ownerOf(tokenId);
+        }else{
+            return 0x0000000000000000000000000000000000000000;
+        }
+    }
+    
 function transferToken(address toAddress, uint tokenId) public{
     _transfer(msg.sender, toAddress, tokenId);
     }    
