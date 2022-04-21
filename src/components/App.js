@@ -95,6 +95,10 @@ class App extends Component {
             window.alert('Il prodotto con ID "' + id + '" ha un carbon footprint di ' + gCO2 + 'g di CO2');
         }
     }
+    
+    transferToken(receiverAddress, tokenId){
+        this.state.marketplace.methods.transferToken(receiverAddress, tokenId).send({ from: this.state.account });
+    }
   
    
 
@@ -126,6 +130,42 @@ class App extends Component {
                     ref={(input) => { this.productID = input }}
                     className="form-control"
                     placeholder="ID"
+                required />
+            </div>
+            <button type="submit" className="btn btn-primary">aggiungi</button>
+            </form>
+            <div>
+            </div>  
+            <hr></hr>
+            <div>
+            </div>
+
+
+            <div>
+            <h5> Trasferisci Token</h5>
+            </div>
+            <form onSubmit={(event) => {
+                event.preventDefault()
+                const tokenId = this.tokenID.value
+                const receiverAddress = this.receiverAddress.value
+                this.transferToken(receiverAddress, tokenId)          
+                }}>
+            <div className="form-group mr-sm-2">
+                <input
+                    id="productPrice"
+                    type="text"
+                    ref={(input) => { this.tokenID = input }}
+                    className="form-control"
+                    placeholder="Token ID"
+                required />
+            </div>
+            <div className="form-group mr-sm-2">
+                <input
+                    id="productPrice"
+                    type="text"
+                    ref={(input) => { this.receiverAddress = input }}
+                    className="form-control"
+                    placeholder="Indirizzo"
                 required />
             </div>
             <button type="submit" className="btn btn-primary">aggiungi</button>
