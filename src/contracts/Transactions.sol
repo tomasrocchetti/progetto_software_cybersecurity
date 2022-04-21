@@ -69,6 +69,8 @@ function addProdottoTrasformato(string memory _name, uint _ID,  uint _gCO2_produ
             
         uint sommaCO2 = 0;
         for (uint i = 0; i< _productsUsedToProcessID.length; i++){
+            require(ownerOf(_productsUsedToProcessID[i]) == msg.sender);
+            _burn(_productsUsedToProcessID[i]);
             sommaCO2 = sommaCO2 + (getCO2ByID(_productsUsedToProcessID[i]));
         }
         sommaCO2 = sommaCO2 +_gCO2_production;
