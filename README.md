@@ -24,6 +24,10 @@ Dependencies can now be installed
 ```
 npm install
 ```
+Install OpenZeppelin Library
+```
+npm install --save-exact openzeppelin-solidity
+```
 Compile smart contracts with 
 ```
 truffle compile
