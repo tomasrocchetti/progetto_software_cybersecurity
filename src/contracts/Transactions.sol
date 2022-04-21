@@ -85,6 +85,10 @@ function addProdottoTrasformato(string memory _name, uint _ID,  uint _gCO2_produ
       
     }
     
+function transferToken(address toAddress, uint tokenId) public{
+    _transfer(msg.sender, toAddress, tokenId);
+    }    
+    
     
 function getProductByID(uint _ID) view public returns (string memory, uint, uint, bool, uint[] memory, uint){
     return (Products[_ID].name, Products[_ID].ID, Products[_ID].gCO2, Products[_ID].isProcessed, Products[_ID].productsUsedToProcessIDs, Products[_ID].quantity);
