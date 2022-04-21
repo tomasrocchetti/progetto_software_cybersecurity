@@ -4,6 +4,8 @@
 - ~~Refresh pagina after addMateriaPrima~~
 - passare indirizzi al costruttore
 - abilitare trasferimento token
+- sanificazione input array prodotti usati
+
 
 ## Entro 6 maggio
 - ~~Gestione Errori~~
