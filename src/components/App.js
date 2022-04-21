@@ -54,9 +54,21 @@ class App extends Component {
             window.alert('Marketplace contract not deployed to detected network.')
         }
     }
+    
+    genID(){
+        var currentdate = new Date(); 
+        var idLotto = 
+        + currentdate.getFullYear()*10000000000
+        +(currentdate.getMonth()+1) *100000000
+        + currentdate.getDate()*1000000
+        + currentdate.getHours() *10000
+        + currentdate.getMinutes()*100
+        + currentdate.getSeconds()
+        return idLotto;
+    }
 
     addMateriaPrima(name, id, gco2, quantity) {
-        this.state.marketplace.methods.addMateriaPrima(name, id, gco2, quantity).send({ from: this.state.account }).on('error', (error) =>{
+        this.state.marketplace.methods.addMateriaPrima(name, this.genID().toString(), gco2, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
             window.location.reload();
         }).on('confirmation', (confirmation) => {
@@ -66,7 +78,7 @@ class App extends Component {
     }
   
     addProdottoTrasformato(name, id, gco2, usedProd, quantity) {
-        this.state.marketplace.methods.addProdottoTrasformato(name, id, gco2, usedProd, quantity).send({ from: this.state.account }).on('error', (error) =>{
+        this.state.marketplace.methods.addProdottoTrasformato(name, this.genID().toString(), gco2, usedProd, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
             window.location.reload();
         }).on('confirmation', (confirmation) => {
@@ -129,10 +141,9 @@ class App extends Component {
             <form onSubmit={(event) => {
                 event.preventDefault()
                 const name = this.pproductName.value
-                const id = this.pproductID.value
                 const gco2 = this.pproductCo2.value
                 const quantity = this.pproductQty.value
-                this.addMateriaPrima(name, id, gco2, quantity)
+                this.addMateriaPrima(name, gco2, quantity)
                 }}>
             <div className="form-group mr-sm-2">
                 <input
@@ -143,15 +154,6 @@ class App extends Component {
                 placeholder="Nome"
             required />
             </div>
-            <div className="form-group mr-sm-2">
-                <input
-                id="productPrice"
-                type="text"
-                ref={(input) => { this.pproductID = input }}
-                className="form-control"
-                placeholder="ID"
-            required />
-        </div>
         <div className="form-group mr-sm-2">
             <input
                 id="productCo2"
@@ -185,11 +187,10 @@ class App extends Component {
             <form onSubmit={(event) => {
                 event.preventDefault()
                 const name = this.tproductName.value
-                const id = this.tproductID.value
                 const gco2 = this.tproductCo2.value
                 const quantity = this.tproductQty.value
                 const listUsedProd = this.tproductUsedList.value.toString().split(',')
-                this.addProdottoTrasformato(name, id, gco2, listUsedProd, quantity)
+                this.addProdottoTrasformato(name, gco2, listUsedProd, quantity)
             }}>
         <div className="form-group mr-sm-2">
             <input
@@ -198,15 +199,6 @@ class App extends Component {
                 ref={(input) => { this.tproductName = input }}
                 className="form-control"
                 placeholder="Nome"
-            required />
-        </div>
-        <div className="form-group mr-sm-2">
-            <input
-                id="productPrice"
-                type="text"
-                ref={(input) => { this.tproductID = input }}
-                className="form-control"
-                placeholder="ID"
             required />
         </div>
         <div className="form-group mr-sm-2">
