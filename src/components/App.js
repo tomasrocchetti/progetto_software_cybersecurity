@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Web3 from 'web3'
-import logo from '../logo.png';
 import './App.css';
 import Transactions from '../abis/Transactions.json'
-import Navbar from './Navbar'
 
 class App extends Component {
 
