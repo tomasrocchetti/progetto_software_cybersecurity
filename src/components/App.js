@@ -46,7 +46,8 @@ class App extends Component {
                 const mgCO2 = await marketplace.methods.getCO2ByID(mproductID.toString()).call();
                 const mprodQty = await marketplace.methods.getQtyByID(mproductID.toString()).call();
                 const mprodName = await marketplace.methods.getNameByID(mproductID.toString()).call();
-                const prd ={name:mprodName, id: mproductID, gco2: mgCO2, quantity: mprodQty };
+                const mprodOwner = await marketplace.methods.getOwner(mproductID).call();
+                const prd ={name:mprodName, id: mproductID, gco2: mgCO2, quantity: mprodQty, owner: mprodOwner };
                 this.state.listOfProducts[i] = prd
             }
         this.setState({ marketplace })
@@ -296,6 +297,7 @@ class App extends Component {
                     <th scope="col">Nome</th>
                     <th scope="col">Co2 (g)</th>
                     <th scope="col">Quantità</th>
+                    <th scope="col">Possessore</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -306,6 +308,7 @@ class App extends Component {
                         <td>{product.name.toString()}</td>
                         <td>{product.gco2.toString()}</td>
                         <td>{product.quantity.toString()}</td>
+                        <td>{product.owner.toString()}</td>
                     </tr>
                  )})}   
             </tbody>
