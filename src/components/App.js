@@ -40,7 +40,6 @@ class App extends Component {
             const marketplace = web3.eth.Contract(Transactions.abi, networkData.address)
             const len = await marketplace.methods.getLen().call()
             window.alert("numero prodotti: " +len)
-            const prd = {name: "", id: "", gco2: 0, quantity: 0 };
             for(var i=0; i<len;i++){
                 const mproductID = await marketplace.methods.productIDs(i).call();
                 const mgCO2 = await marketplace.methods.getCO2ByID(mproductID.toString()).call();
@@ -68,7 +67,7 @@ class App extends Component {
         return idLotto;
     }
 
-    addMateriaPrima(name, id, gco2, quantity) {
+    addMateriaPrima(name, gco2, quantity) {
         this.state.marketplace.methods.addMateriaPrima(name, this.genID(), gco2, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
             window.location.reload();
@@ -78,7 +77,7 @@ class App extends Component {
         });
     }
   
-    addProdottoTrasformato(name, id, gco2, usedProd, quantity) {
+    addProdottoTrasformato(name, gco2, usedProd, quantity) {
         this.state.marketplace.methods.addProdottoTrasformato(name, this.genID(), gco2, usedProd, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
             window.location.reload();
