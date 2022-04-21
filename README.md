@@ -1,5 +1,11 @@
 # progetto_software_cybersecurity
 
+### Install Dependencies
+
+- ganache
+- truffle
+- metamask
+
 ### Installation
 First you need to clone the repository on your computer:
 
