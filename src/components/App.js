@@ -98,7 +98,13 @@ class App extends Component {
     
     transferToken(receiverAddress, tokenId){
         if(window.web3.utils.isAddress(toAddress)){
-             this.state.marketplace.methods.transferToken(toAddress, tokenId).send({ from: this.state.account });
+            this.state.marketplace.methods.transferToken(toAddress, tokenId).send({ from: this.state.account }).on('error', (error) =>{
+                window.alert('Qualcosa è andato storto, la transazione non è stata completata');
+                window.location.reload();
+            }).on('confirmation', (confirmation) => {
+                window.alert('La transazione è stata completata');
+                window.location.reload();
+        });
         } else{
             window.alert(toAddress + ' non è un indirizzo valido');
         }
