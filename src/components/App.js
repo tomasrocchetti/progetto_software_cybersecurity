@@ -63,6 +63,7 @@ class App extends Component {
             window.location.reload();
         }).on('confirmation', (confirmation) => {
             window.alert('La transazione è stata completata');
+            window.location.reload();
         });
     }
   
@@ -72,6 +73,7 @@ class App extends Component {
             window.location.reload();
         }).on('confirmation', (confirmation) => {
             window.alert('La transazione è stata completata');
+            window.location.reload();
         });
     }
 
