@@ -2,9 +2,9 @@
 
 pragma solidity >=0.8.0 <0.9.0;
 
-import "./Strings.sol";
+import 'openzeppelin-solidity/contracts/token/ERC721/ERC721.sol';
 
-contract Transactions {
+contract Transactions is ERC721{
 
 
 
@@ -30,7 +30,8 @@ uint[] public productIDs;
 event newMateriaPrima (string name, uint ID, uint gCO2, uint quantity);
 event newProdottoTrasformato (string name, uint ID, uint sommaCO2, uint[] productsUsedToProcessID, uint quantity);
 
-
+constructor () public ERC721 ("carbonfootprint", "CBF"){}
+ 
  
 // funzione per aggiungere una nuova transazione (ovvero una nuova materia prima o un nuovo prodotto frutto di lavorazione)
 function addMateriaPrima(string memory _name, uint _ID,  uint _gCO2, uint _quantity) public {
@@ -50,6 +51,7 @@ function addMateriaPrima(string memory _name, uint _ID,  uint _gCO2, uint _quant
         productIDs.push(_ID);
        
         emit newMateriaPrima(_name, _ID, _gCO2, _quantity);
+        _mint(msg.sender, _ID);
 
     }
 
@@ -79,7 +81,7 @@ function addProdottoTrasformato(string memory _name, uint _ID,  uint _gCO2_produ
         productIDs.push(_ID);
        
         emit newProdottoTrasformato(_name, _ID, sommaCO2, _productsUsedToProcessID, _quantity);
-
+        _mint(msg.sender, _ID);
       
     }
     
