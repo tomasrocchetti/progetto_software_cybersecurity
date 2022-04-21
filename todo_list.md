@@ -3,6 +3,7 @@
 - ~~Caricarre i valori degli array in una tabella che elenca i prodotti~~
 - ~~Refresh pagina after addMateriaPrima~~
 - passare indirizzi al costruttore
+- abilitare trasferimento token
 
 ## Entro 6 maggio
 - ~~Gestione Errori~~
@@ -18,7 +19,7 @@
 - Fine
 
 ### Stato attuale
-- Contratto funzionante senza la gestione dei token, il costruttore non viene considerato, l'indirizzo del produttore è hardcoded nel contratto.
+- Contratto funzionante ~~senza la gestione dei token~~, il costruttore non viene considerato, l'indirizzo del produttore è hardcoded nel contratto.
 - L'interfaccia web è in grado di scrivere i dati della matteria prima sulla blockchain. 
 - Il codice JS è in grado di leggere dalla blockchain ~~ma non è in grado di mostrarli sull'interfaccia web~~
 - Le eccezioni vengono gestite
