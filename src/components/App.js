@@ -68,7 +68,7 @@ class App extends Component {
     }
 
     addMateriaPrima(name, id, gco2, quantity) {
-        this.state.marketplace.methods.addMateriaPrima(name, this.genID().toString(), gco2, quantity).send({ from: this.state.account }).on('error', (error) =>{
+        this.state.marketplace.methods.addMateriaPrima(name, this.genID(), gco2, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
             window.location.reload();
         }).on('confirmation', (confirmation) => {
@@ -78,7 +78,7 @@ class App extends Component {
     }
   
     addProdottoTrasformato(name, id, gco2, usedProd, quantity) {
-        this.state.marketplace.methods.addProdottoTrasformato(name, this.genID().toString(), gco2, usedProd, quantity).send({ from: this.state.account }).on('error', (error) =>{
+        this.state.marketplace.methods.addProdottoTrasformato(name, this.genID(), gco2, usedProd, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
             window.location.reload();
         }).on('confirmation', (confirmation) => {
