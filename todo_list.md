@@ -5,7 +5,7 @@
 - passare indirizzi al costruttore
 
 ## Entro 6 maggio
-- Gestione Errori
+- ~~Gestione Errori~~
   - ~~inserimento dati non corretti nell'array~~
   - ~~inserimento lettere al posto di uint~~
   - ~~ID gia esistente (c'è gia require su contract)~~
