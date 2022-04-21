@@ -22,3 +22,4 @@
 - L'interfaccia web è in grado di scrivere i dati della matteria prima sulla blockchain. 
 - Il codice JS è in grado di leggere dalla blockchain ~~ma non è in grado di mostrarli sull'interfaccia web~~
 - Le eccezioni vengono gestite
+- ora l'id viene generato automaticamente a partire dalla data YYYYMMDDhhmmss
