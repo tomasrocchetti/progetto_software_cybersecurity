@@ -5,6 +5,8 @@
 - passare indirizzi al costruttore (o indirizzi hardcoded?)
 - ~~abilitare trasferimento token~~
 - ~~sanificazione input array prodotti usati~~
+- ~~aggiunto owner alla lista~~
+- ~~bruciare i token qunado il prodotto viene trasformato~~
 
 
 ## Entro 6 maggio
