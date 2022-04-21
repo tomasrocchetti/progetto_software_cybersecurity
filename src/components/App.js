@@ -132,7 +132,7 @@ class App extends Component {
                     placeholder="ID"
                 required />
             </div>
-            <button type="submit" className="btn btn-primary">aggiungi</button>
+            <button type="submit" className="btn btn-primary">leggi info</button>
             </form>
             <div>
             </div>  
