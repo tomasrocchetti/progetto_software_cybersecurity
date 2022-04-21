@@ -1,7 +1,7 @@
 ## Entro 1 maggio
 - ~~Caricare i valori dei prodotti negli array~~
 - ~~Caricarre i valori degli array in una tabella che elenca i prodotti~~
-- Refresh pagina after addMateriaPrima
+- ~~Refresh pagina after addMateriaPrima~~
 - passare indirizzi al costruttore
 
 ## Entro 6 maggio
