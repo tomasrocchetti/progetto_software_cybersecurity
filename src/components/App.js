@@ -168,7 +168,7 @@ class App extends Component {
                     placeholder="Indirizzo"
                 required />
             </div>
-            <button type="submit" className="btn btn-primary">aggiungi</button>
+            <button type="submit" className="btn btn-primary">trasferisci Token</button>
             </form>
             <div>
             </div>  
@@ -283,7 +283,7 @@ class App extends Component {
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nomw</th>
+                    <th scope="col">Nome</th>
                     <th scope="col">Co2 (g)</th>
                     <th scope="col">Quantità</th>
                     <th scope="col"></th>
