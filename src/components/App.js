@@ -97,7 +97,11 @@ class App extends Component {
     }
     
     transferToken(receiverAddress, tokenId){
-        this.state.marketplace.methods.transferToken(receiverAddress, tokenId).send({ from: this.state.account });
+        if(window.web3.utils.isAddress(toAddress)){
+             this.state.marketplace.methods.transferToken(toAddress, tokenId).send({ from: this.state.account });
+        } else{
+            window.alert(toAddress + ' non è un indirizzo valido');
+        }
     }
   
    
