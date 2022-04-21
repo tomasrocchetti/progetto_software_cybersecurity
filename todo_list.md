@@ -3,8 +3,8 @@
 - ~~Caricarre i valori degli array in una tabella che elenca i prodotti~~
 - ~~Refresh pagina after addMateriaPrima~~
 - passare indirizzi al costruttore (o indirizzi hardcoded?)
-- abilitare trasferimento token
-- sanificazione input array prodotti usati
+- ~~abilitare trasferimento token~~
+- ~~sanificazione input array prodotti usati~~
 
 
 ## Entro 6 maggio
