@@ -11,7 +11,10 @@ class App extends Component {
     };
   
 
-
+    /**
+    funzoine per tentare di caricare le componenti necessarie al funzionamento,
+    se non è possibile caricare correttamente le componenti setta false la variabile che decide se caricare o meno la pagina
+    **/
     async componentWillMount() {
         if(await this.loadWeb3()){
             this.state.loadPage = true;
@@ -19,6 +22,9 @@ class App extends Component {
         }     
     }
 
+    /**
+    viene caricato web3 e restituito lo stato di successo o insuccesso
+    **/
     async loadWeb3() {
         if (window.ethereum) {
             window.web3 = new Web3(window.ethereum)
@@ -35,6 +41,11 @@ class App extends Component {
         }
     }
 
+    /**
+    viene connessa la blockchain e caricato il contratto,
+    vengono caricati tutti i prodotti con i vsari attributi nella lista listOfProducts,
+    se qualcosa va storto viene restituito un messaggio di errore
+    **/
     async loadBlockchainData() {
         const web3 = window.web3
         // load account
@@ -60,12 +71,16 @@ class App extends Component {
             window.alert('Impossiblie fare il deploy del contratto')
         }
     }
-    
+   
+    /**
+    funzione che genera gli ID per prodotti e token associati a partire da data e ora.
+    l'ID che viene generato è un intero in questa forma: YYYYMMDDhhmmss
+    **/
     genID(){
         var currentdate = new Date(); 
         var idLotto = 
         + currentdate.getFullYear()*10000000000
-        +(currentdate.getMonth()+1) *100000000
+        + (currentdate.getMonth()+1) *100000000
         + currentdate.getDate()*1000000
         + currentdate.getHours() *10000
         + currentdate.getMinutes()*100
@@ -73,6 +88,10 @@ class App extends Component {
         return idLotto;
     }
 
+    /**
+    funzione per caricare un prodotto (materia prima), sia che l'istruzione termina con successo, sia che termina in errore
+    viene restituito un messaggio e viene refreshata la pagina
+    **/
     addMateriaPrima(name, gco2, quantity) {
         this.state.marketplace.methods.addMateriaPrima(name, this.genID(), gco2, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
@@ -82,7 +101,13 @@ class App extends Component {
             window.location.reload();
         });
     }
-  
+
+    /**
+    funzione per caricare un prodotto (prodotto trasformato), sia che l'istruzione termina con successo, sia che termina in errore
+    viene restituito un messaggio e viene refreshata la pagina.
+    viene inoltre effettuata una sanificazione degli input per far si che i valori in ingresso dell'array 
+    contenente la lista dei prodotti usati per la trasformazione siano valori che non mandino in crash il sistema
+    **/
     addProdottoTrasformato(name, gco2, usedProd, quantity) {
         var usedProdContainUint = true;
         for (var i = 0; i<usedProd.length; i++){
@@ -103,7 +128,11 @@ class App extends Component {
             window.location.reload();
         }
     }
-
+    
+    /**
+    funzione che dato in ingresso un ID restituisce il valore del carbon footprint associato
+    o dice che il prodotto non esiste se non c'è nessun carbon footprint associato
+    **/
     async getCO2ByID(id){
         const gCO2 =  await this.state.marketplace.methods.getCO2ByID(id).call();
         if(Number(gCO2) === 0){
@@ -113,6 +142,11 @@ class App extends Component {
         }
     }
     
+    /**
+    funzione per trasferire un token dato indirizzo del destinatatio e ID del token associato al prodotto
+    l'utente viene avvisato sia in caso di successo che in caso di errore
+    inoltre viene controllato se la stringa inserita nel campo indirizzo è un indirizzo valido
+    **/
     transferToken(toAddress, tokenId){
         if(window.web3.utils.isAddress(toAddress)){
             this.state.marketplace.methods.transferToken(toAddress, tokenId).send({ from: this.state.account }).on('error', (error) =>{
@@ -126,7 +160,10 @@ class App extends Component {
             window.alert(toAddress + ' non è un indirizzo valido');
         }
     }
-  
+    
+    /**
+    funzione che data in ingresso una stringa controlla se è un intero positivo
+    **/
     isPositiveInteger(str) {
         if (typeof str !== 'string') {
             return false;
@@ -138,11 +175,11 @@ class App extends Component {
         return false;
     }
 
-    
-
-  
-
-
+    /**
+    rendering della pagina.
+    se la variabile di stato loadPage = true viene caricata lapagina, altrimenti viene caricata una pagina
+    che invita l'utente ad installare o attivare metamask
+    **/
     render() {
         if (this.state.loadPage){
             return (
