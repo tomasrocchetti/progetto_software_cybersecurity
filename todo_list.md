@@ -7,6 +7,7 @@
 - ~~sanificazione input array prodotti usati~~
 - ~~aggiunto owner alla lista~~
 - ~~bruciare i token qunado il prodotto viene trasformato~~
+- ~~controllare che l'array di prodotti usati contenga solo integer~~
 
 
 ## Entro 6 maggio
