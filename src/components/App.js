@@ -30,7 +30,7 @@ class App extends Component {
             return true;
         }
         else {
-            window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+            window.alert('Browser non compatibile con Ethereum, installa MetaMask dallo store delle estensioni di chrome')
             return false;
         }
     }
@@ -57,7 +57,7 @@ class App extends Component {
             }
         this.setState({ marketplace })
         } else {
-            window.alert('Marketplace contract not deployed to detected network.')
+            window.alert('Impossiblie fare il deploy del contratto')
         }
     }
     
