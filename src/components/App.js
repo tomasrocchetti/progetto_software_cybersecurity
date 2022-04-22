@@ -78,13 +78,24 @@ class App extends Component {
     }
   
     addProdottoTrasformato(name, gco2, usedProd, quantity) {
-        this.state.marketplace.methods.addProdottoTrasformato(name, this.genID(), gco2, usedProd, quantity).send({ from: this.state.account }).on('error', (error) =>{
+        var usedProdContainUint = true;
+        for (var i = 0; i<usedProd.length; i++){
+            if (!usedProd[i].isPositiveInteger){
+                usedProdContainUint = false;
+            }
+        }
+        if(usedProdContainUint){
+            this.state.marketplace.methods.addProdottoTrasformato(name, this.genID(), gco2, usedProd, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
             window.location.reload();
         }).on('confirmation', (confirmation) => {
             window.alert('La transazione è stata completata');
             window.location.reload();
         });
+        } else{
+            window.alert('Hai inserito valori non accettabili tra gli ID dei prodotti usati per le trasformazione');
+            window.location.reload();
+        }
     }
 
     async getCO2ByID(id){
