@@ -149,6 +149,7 @@ class App extends Component {
                     id="productPrice"
                     type="number"
                     min="0"
+                    step="1"
                     ref={(input) => { this.productID = input }}
                     className="form-control"
                     placeholder="ID"
@@ -177,6 +178,7 @@ class App extends Component {
                     id="productPrice"
                     type="number"
                     min="0"
+                    step="1"
                     ref={(input) => { this.tokenID = input }}
                     className="form-control"
                     placeholder="Token ID"
@@ -222,6 +224,7 @@ class App extends Component {
                 id="productCo2"
                 type="number"
                 min="0"
+                step="1"
                 ref={(input) => { this.pproductCo2 = input }}
                 className="form-control"
                 placeholder="CO2 (g)"
@@ -232,6 +235,7 @@ class App extends Component {
                 id="productQuantity"
                 type="number"
                 min="0"
+                step="1"
                 ref={(input) => { this.pproductQty = input }}
                 className="form-control"
                 placeholder="Quantità"
@@ -269,6 +273,7 @@ class App extends Component {
                 id="productCo2"
                 type="number"
                 min="0"
+                step="1"
                 ref={(input) => { this.tproductCo2 = input }}
                 className="form-control"
                 placeholder="CO2 (g)"
@@ -279,6 +284,7 @@ class App extends Component {
                 id="productQuantity"
                 type="number"
                 min="0"
+                step="1"
                 ref={(input) => { this.tproductQty = input }}
                 className="form-control"
                 placeholder="Quantità"
