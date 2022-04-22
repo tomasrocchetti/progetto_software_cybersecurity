@@ -100,7 +100,7 @@ class App extends Component {
 
     async getCO2ByID(id){
         const gCO2 =  await this.state.marketplace.methods.getCO2ByID(id).call();
-        if(gCO2 == 0){
+        if(Number(gCO2) === 0){
             window.alert('Il prodotto con ID "' + id + '" non esiste');
         } else{
             window.alert('Il prodotto con ID "' + id + '" ha un carbon footprint di ' + gCO2 + 'g di CO2');
