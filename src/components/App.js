@@ -7,25 +7,31 @@ class App extends Component {
 
     state = {
         listOfProducts: [],
+         loadPage: false
     };
   
 
 
     async componentWillMount() {
-        await this.loadWeb3()
-        await this.loadBlockchainData()
+        if(await this.loadWeb3()){
+            this.state.loadPage = true;
+            await this.loadBlockchainData()
+        }     
     }
 
     async loadWeb3() {
         if (window.ethereum) {
             window.web3 = new Web3(window.ethereum)
             await window.ethereum.enable()
+            return true;
         }
         else if (window.web3) {
             window.web3 = new Web3(window.web3.currentProvider)
+            return true;
         }
         else {
             window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+            return false;
         }
     }
 
@@ -138,210 +144,218 @@ class App extends Component {
 
 
     render() {
-        return (
-        
-       
-            <div id="content">
-            <h1>Aggiungi un Prodotto</h1>
-            <h9>{this.state.account}</h9>
-            <hr></hr>
-            <div>
-                <h5> Leggi CO2 da ID lotto</h5>
-            </div>
-            <form onSubmit={(event) => {
-                event.preventDefault()
-                const id = this.productID.value
-                this.getCO2ByID(id.toString())          
-                }}>
+        if (this.state.loadPage){
+            return (
+                <div id="content">
+                <h1>Aggiungi un Prodotto</h1>
+                <h9>{this.state.account}</h9>
+                <hr></hr>
+                <div>
+                    <h5> Leggi CO2 da ID lotto</h5>
+                </div>
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    const id = this.productID.value
+                    this.getCO2ByID(id.toString())          
+                    }}>
+                <div className="form-group mr-sm-2">
+                    <input
+                        id="productPrice"
+                        type="number"
+                        min="0"
+                        step="1"
+                        ref={(input) => { this.productID = input }}
+                        className="form-control"
+                        placeholder="ID"
+                    required />
+                </div>
+                <button type="submit" className="btn btn-primary">leggi info</button>
+                </form>
+                <div>
+                </div>  
+                <hr></hr>
+                <div>
+                </div>
+
+
+                <div>
+                <h5> Trasferisci Token</h5>
+                </div>
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    const tokenId = this.tokenID.value
+                    const receiverAddress = this.receiverAddress.value
+                    this.transferToken(receiverAddress, tokenId)          
+                    }}>
+                <div className="form-group mr-sm-2">
+                    <input
+                        id="productPrice"
+                        type="number"
+                        min="0"
+                        step="1"
+                        ref={(input) => { this.tokenID = input }}
+                        className="form-control"
+                        placeholder="Token ID"
+                    required />
+                </div>
+                <div className="form-group mr-sm-2">
+                    <input
+                        id="productPrice"
+                        type="text"
+                        ref={(input) => { this.receiverAddress = input }}
+                        className="form-control"
+                        placeholder="Indirizzo"
+                    required />
+                </div>
+                <button type="submit" className="btn btn-primary">trasferisci Token</button>
+                </form>
+                <div>
+                </div>  
+                <hr></hr>
+                <div>
+                </div>
+
+
+                <h5> Inserisci Materia prima (solo produttore) </h5>
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    const name = this.pproductName.value
+                    const gco2 = this.pproductCo2.value
+                    const quantity = this.pproductQty.value
+                    this.addMateriaPrima(name, gco2, quantity)
+                    }}>
+                <div className="form-group mr-sm-2">
+                    <input
+                    id="productName"
+                    type="text"
+                    ref={(input) => { this.pproductName = input }}
+                    className="form-control"
+                    placeholder="Nome"
+                required />
+                </div>
             <div className="form-group mr-sm-2">
                 <input
-                    id="productPrice"
+                    id="productCo2"
                     type="number"
                     min="0"
                     step="1"
-                    ref={(input) => { this.productID = input }}
+                    ref={(input) => { this.pproductCo2 = input }}
                     className="form-control"
-                    placeholder="ID"
+                    placeholder="CO2 (g)"
                 required />
             </div>
-            <button type="submit" className="btn btn-primary">leggi info</button>
+            <div className="form-group mr-sm-2">
+                <input
+                    id="productQuantity"
+                    type="number"
+                    min="0"
+                    step="1"
+                    ref={(input) => { this.pproductQty = input }}
+                    className="form-control"
+                    placeholder="Quantità"
+                required />
+            </div>
+            <button type="submit" className="btn btn-primary">aggiungi</button>
             </form>
             <div>
-            </div>  
+            </div>
             <hr></hr>
             <div>
             </div>
 
 
-            <div>
-            <h5> Trasferisci Token</h5>
-            </div>
-            <form onSubmit={(event) => {
-                event.preventDefault()
-                const tokenId = this.tokenID.value
-                const receiverAddress = this.receiverAddress.value
-                this.transferToken(receiverAddress, tokenId)          
+                <h5> Inserisci Prodotto trasformato (solo trasformatore) </h5>
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    const name = this.tproductName.value
+                    const gco2 = this.tproductCo2.value
+                    const quantity = this.tproductQty.value
+                    const listUsedProd = this.tproductUsedList.value.toString().replace(/\s/g, '').split(',')
+                    this.addProdottoTrasformato(name, gco2, listUsedProd, quantity)
                 }}>
             <div className="form-group mr-sm-2">
                 <input
-                    id="productPrice"
+                    id="productName"
+                    type="text"
+                    ref={(input) => { this.tproductName = input }}
+                    className="form-control"
+                    placeholder="Nome"
+                required />
+            </div>
+            <div className="form-group mr-sm-2">
+                <input
+                    id="productCo2"
                     type="number"
                     min="0"
                     step="1"
-                    ref={(input) => { this.tokenID = input }}
+                    ref={(input) => { this.tproductCo2 = input }}
                     className="form-control"
-                    placeholder="Token ID"
+                    placeholder="CO2 (g)"
+                required />
+            </div>
+            <div className="form-group mr-sm-2">
+                <input
+                    id="productQuantity"
+                    type="number"
+                    min="0"
+                    step="1"
+                    ref={(input) => { this.tproductQty = input }}
+                    className="form-control"
+                    placeholder="Quantità"
                 required />
             </div>
             <div className="form-group mr-sm-2">
                 <input
                     id="productPrice"
                     type="text"
-                    ref={(input) => { this.receiverAddress = input }}
+                    ref={(input) => { this.tproductUsedList = input }}
                     className="form-control"
-                    placeholder="Indirizzo"
+                    placeholder="Lista Prodotti usati per la trasformazione"
                 required />
             </div>
-            <button type="submit" className="btn btn-primary">trasferisci Token</button>
+            <button type="submit" className="btn btn-primary">aggiungi</button>
             </form>
             <div>
-            </div>  
+            </div>
             <hr></hr>
-            <div>
-            </div>
-
-        
-            <h5> Inserisci Materia prima (solo produttore) </h5>
-            <form onSubmit={(event) => {
-                event.preventDefault()
-                const name = this.pproductName.value
-                const gco2 = this.pproductCo2.value
-                const quantity = this.pproductQty.value
-                this.addMateriaPrima(name, gco2, quantity)
-                }}>
-            <div className="form-group mr-sm-2">
-                <input
-                id="productName"
-                type="text"
-                ref={(input) => { this.pproductName = input }}
-                className="form-control"
-                placeholder="Nome"
-            required />
-            </div>
-        <div className="form-group mr-sm-2">
-            <input
-                id="productCo2"
-                type="number"
-                min="0"
-                step="1"
-                ref={(input) => { this.pproductCo2 = input }}
-                className="form-control"
-                placeholder="CO2 (g)"
-            required />
-        </div>
-        <div className="form-group mr-sm-2">
-            <input
-                id="productQuantity"
-                type="number"
-                min="0"
-                step="1"
-                ref={(input) => { this.pproductQty = input }}
-                className="form-control"
-                placeholder="Quantità"
-            required />
-        </div>
-        <button type="submit" className="btn btn-primary">aggiungi</button>
-        </form>
-        <div>
-        </div>
-        <hr></hr>
-        <div>
-        </div>
 
 
-            <h5> Inserisci Prodotto trasformato (solo trasformatore) </h5>
-            <form onSubmit={(event) => {
-                event.preventDefault()
-                const name = this.tproductName.value
-                const gco2 = this.tproductCo2.value
-                const quantity = this.tproductQty.value
-                const listUsedProd = this.tproductUsedList.value.toString().replace(/\s/g, '').split(',')
-                this.addProdottoTrasformato(name, gco2, listUsedProd, quantity)
-            }}>
-        <div className="form-group mr-sm-2">
-            <input
-                id="productName"
-                type="text"
-                ref={(input) => { this.tproductName = input }}
-                className="form-control"
-                placeholder="Nome"
-            required />
-        </div>
-        <div className="form-group mr-sm-2">
-            <input
-                id="productCo2"
-                type="number"
-                min="0"
-                step="1"
-                ref={(input) => { this.tproductCo2 = input }}
-                className="form-control"
-                placeholder="CO2 (g)"
-            required />
-        </div>
-        <div className="form-group mr-sm-2">
-            <input
-                id="productQuantity"
-                type="number"
-                min="0"
-                step="1"
-                ref={(input) => { this.tproductQty = input }}
-                className="form-control"
-                placeholder="Quantità"
-            required />
-        </div>
-        <div className="form-group mr-sm-2">
-            <input
-                id="productPrice"
-                type="text"
-                ref={(input) => { this.tproductUsedList = input }}
-                className="form-control"
-                placeholder="Lista Prodotti usati per la trasformazione"
-            required />
-        </div>
-        <button type="submit" className="btn btn-primary">aggiungi</button>
-        </form>
-        <div>
-        </div>
-        <hr></hr>
-
-        
-        <p>&nbsp;</p>
-        <h2>Lista prodotti</h2>
-        <table className="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Co2 (g)</th>
-                    <th scope="col">Quantità</th>
-                    <th scope="col">Possessore</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody id="productList">
-                { this.state.listOfProducts.map((product, key) => { return(
-                    <tr key={key}>
-                        <th scope="row">{product.id.toString()}</th>
-                        <td>{product.name.toString()}</td>
-                        <td>{product.gco2.toString()}</td>
-                        <td>{product.quantity.toString()}</td>
-                        <td>{product.owner.toString()}</td>
+            <p>&nbsp;</p>
+            <h2>Lista prodotti</h2>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Co2 (g)</th>
+                        <th scope="col">Quantità</th>
+                        <th scope="col">Possessore</th>
+                        <th scope="col"></th>
                     </tr>
-                 )})}   
-            </tbody>
-        </table>      
-        </div>
-        );
+                </thead>
+                <tbody id="productList">
+                    { this.state.listOfProducts.map((product, key) => { return(
+                        <tr key={key}>
+                            <th scope="row">{product.id.toString()}</th>
+                            <td>{product.name.toString()}</td>
+                            <td>{product.gco2.toString()}</td>
+                            <td>{product.quantity.toString()}</td>
+                            <td>{product.owner.toString()}</td>
+                        </tr>
+                     )})}   
+                </tbody>
+            </table>      
+            </div>
+            );
+        } else{
+            return(
+                <div id="content">
+                <h1>Installa o attiva Metamask</h1>
+                </div>
+                );
+        }
+        
+            
     }
 }
 
