@@ -239,7 +239,7 @@ class App extends Component {
                 const name = this.tproductName.value
                 const gco2 = this.tproductCo2.value
                 const quantity = this.tproductQty.value
-                const listUsedProd = this.tproductUsedList.value.toString().split(',')
+                const listUsedProd = this.tproductUsedList.value.toString().replace(/\s/g, '').split(',')
                 this.addProdottoTrasformato(name, gco2, listUsedProd, quantity)
             }}>
         <div className="form-group mr-sm-2">
