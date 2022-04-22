@@ -80,7 +80,7 @@ class App extends Component {
     addProdottoTrasformato(name, gco2, usedProd, quantity) {
         var usedProdContainUint = true;
         for (var i = 0; i<usedProd.length; i++){
-            if (!usedProd[i].isPositiveInteger){
+            if (!isPositiveInteger(usedProd[i])){
                 usedProdContainUint = false;
             }
         }
