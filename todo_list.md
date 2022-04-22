@@ -7,7 +7,7 @@
 - ~~sanificazione input array prodotti usati~~
 - ~~aggiunto owner alla lista~~
 - ~~bruciare i token qunado il prodotto viene trasformato~~
-- controllare che l'array di prodotti usati contenga solo integer
+- ~~controllare che l'array di prodotti usati contenga solo integer~~
 - capire come gestire gli errori, cosi non funzionano bene
 
 
