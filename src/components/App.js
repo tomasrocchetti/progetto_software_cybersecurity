@@ -135,10 +135,15 @@ class App extends Component {
     **/
     async getCO2ByID(id){
         const gCO2 =  await this.state.marketplace.methods.getCO2ByID(id).call();
+        this.state.usedProds = await this.state.marketplace.methods.getUsedProductForTransform(id).call();
+        var infoTransformation = '';
+        for (var i = 0; i<this.state.usedProds.length; i++){
+            infoTransformation =  infoTransformation  + this.state.usedProds[i]+ '\n';
+        }
         if(Number(gCO2) === 0){
             window.alert('Il prodotto con ID "' + id + '" non esiste');
         } else{
-            window.alert('Il prodotto con ID "' + id + '" ha un carbon footprint di ' + gCO2 + 'g di CO2');
+            window.alert('Il prodotto con ID "' + id + '" ha un carbon footprint di ' + gCO2 + 'g di CO2. \n \n' + 'Per perodurre questo prodotto sono stati utilizzati i prodotti con ID: \n' + infoTransformation);
         }
     }
     
