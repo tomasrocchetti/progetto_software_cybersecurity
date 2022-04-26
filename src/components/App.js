@@ -136,15 +136,18 @@ class App extends Component {
     **/
     async getCO2ByID(id){
         const gCO2 =  await this.state.marketplace.methods.getCO2ByID(id).call();
+        const name = await this.state.marketplace.methods.getNameByID(id).call();
+        const owner = await this.state.marketplace.methods.getOwner(id).call();
         this.state.usedProds = await this.state.marketplace.methods.getUsedProductForTransform(id).call();
         var infoTransformation = '';
         for (var i = 0; i<this.state.usedProds.length; i++){
-            infoTransformation =  infoTransformation  + this.state.usedProds[i]+ '\n';
+            const carbonList= await this.state.marketplace.methods.getCO2ByID(this.state.usedProds[i]).call();
+            infoTransformation =  infoTransformation  + this.state.usedProds[i]+ ' (' + carbonList+'g CO2)\n';
         }
         if(Number(gCO2) === 0){
             window.alert('Il prodotto con ID "' + id + '" non esiste');
         } else{
-            window.alert('Il prodotto con ID "' + id + '" ha un carbon footprint di ' + gCO2 + 'g di CO2. \n \n' + 'Per perodurre questo prodotto sono stati utilizzati i prodotti con ID: \n' + infoTransformation);
+            window.alert('ID: ' + id + '\nNome: '+ name +'\nFootprint: ' + gCO2 + ' grammi di CO2 \nPossessore: ' + owner + ' \n \nPer perodurre questo prodotto sono stati utilizzati i prodotti con ID: \n' + infoTransformation);
         }
     }
     
