@@ -213,6 +213,7 @@ class App extends Component {
         
                 <div>
                 <h5> Configura Indirizzi</h5>
+                Questa funzione ti permette di settare un indirizzo che sia in grado che abbia i privilegi di trasformatore e un indirizzo che abbia i privilegi da trasformatore. Puoi inserire un qualsiasi indirizzo tra quelli che ha generato la tua blockchian locale.
                 </div>
                 <form onSubmit={(event) => {
                     event.preventDefault()
@@ -247,7 +248,9 @@ class App extends Component {
                 </div>
 
                 <div>
-                    <h5> Leggi CO2 da ID lotto</h5>
+                <h5> Leggi CO2 da ID lotto</h5>
+                Qui puoi inserire un ID di un prodotto per ottenere le informazioni relative al suo impatto energetico. Se inserisci un ID di un prodotto trasformato verranno anche elencati tutti i prodotti utilizzati per la trasformazione.
+
                 </div>
                 <form onSubmit={(event) => {
                     event.preventDefault()
@@ -276,6 +279,7 @@ class App extends Component {
 
                 <div>
                 <h5> Trasferisci Token</h5>
+                Questa funzione ti permette di trasferire il Token non fungibile associato ad un prodotto dal tuo wallet al wallet di qualcun altro. Puoi trasferire soltanto Token di tua proprietà.
                 </div>
                 <form onSubmit={(event) => {
                     event.preventDefault()
@@ -313,6 +317,8 @@ class App extends Component {
 
 
                 <h5> Inserisci Materia prima (solo produttore) </h5>
+                Questa funzione ti permette di aggiungere una nuova materia prima. Soltanto il wallet con privilegi di produttore può utilizzare questa funzione. inoltre non è necessario inserire un ID, questo verrà generato automaticamente.
+                Questa funzione genera un Token con stesso id del prodotto e lo aggiunge al wallet dell indirizzo che ha aggiunto la materia prima.
                 <form onSubmit={(event) => {
                     event.preventDefault()
                     const name = this.pproductName.value
@@ -361,6 +367,9 @@ class App extends Component {
 
 
                 <h5> Inserisci Prodotto trasformato (solo trasformatore) </h5>
+                Questa funzione ti permette di aggiungere un nuovo prodotto trasformato. Soltanto il wallet con privilegi di trasformatore può utilizzare questa funzione. inoltre non è necessario inserire un ID, questo verrà generato automaticamente. Per inserire gli ID dei prodotti utilizzati nella trasformazione è sufficiente scrivere gli ID separati da una virgola.
+                 Questa funzione, oltre a generare un nuovo token nel portafoglio di chi ha eseguito la funzione, brucia i token associati ai prodotti lavorati. Per questo motivo è possibile inserire dei prodotti nell elenco dei prodotti usati per la trasformazione solo se si è in possesso di essi, altrimenti verrà restituito un errore.
+
                 <form onSubmit={(event) => {
                     event.preventDefault()
                     const name = this.tproductName.value
