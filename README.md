@@ -38,3 +38,4 @@ Now you can run the App
 ```
 npm run start
 ```
+Finally you can interact with the app via Chrome ```hppt://127.0.0.1:3000```
