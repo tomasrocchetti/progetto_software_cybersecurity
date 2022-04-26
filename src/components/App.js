@@ -174,6 +174,24 @@ class App extends Component {
             }
         return false;
     }
+    
+    /**
+    funzione che permette di settare gli indirizzi che hanno il permesso di eseguire le operazioni come
+    produttori e quelli che hanno il permesso di eseguire le operazioni da trasformatori
+    **/
+    async setAddresses(produttoreAddress, trasformatoreAddress){
+        if(window.web3.utils.isAddress(produttoreAddress) && window.web3.utils.isAddress(produttoreAddress)){
+            await this.state.marketplace.methods.setAddresses(produttoreAddress, trasformatoreAddress).send({ from: this.state.account }).on('error', (error) =>{
+                window.alert('Qualcosa è andato storto, gli indirizzi non sono stati settati');
+                window.location.reload();
+            }).on('confirmation', (confirmation) => {
+                window.alert('gli indirizzi sono stati settati');
+                window.location.reload();
+        });
+        } else{
+             window.alert('uno degli indirizzi non è valido');
+        }
+    }
 
     /**
     rendering della pagina.
@@ -187,6 +205,42 @@ class App extends Component {
                 <h1>Aggiungi un Prodotto</h1>
                 <h9>{this.state.account}</h9>
                 <hr></hr>
+        
+                <div>
+                <h5> Configura Indirizzi</h5>
+                </div>
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    const trasformatoreAddress = this.trasformatoreAddress.value
+                    const produttoreAddress = this.produttoreAddress.value
+                    this.setAddresses(produttoreAddress, trasformatoreAddress)
+                    }}>
+                <div className="form-group mr-sm-2">
+                    <input
+                        id="productPrice"
+                        type="text"
+                        ref={(input) => { this.trasformatoreAddress = input }}
+                        className="form-control"
+                        placeholder="Indirizzo trasformatore"
+                    required />
+                </div>
+                <div className="form-group mr-sm-2">
+                    <input
+                        id="productPrice"
+                        type="text"
+                        ref={(input) => { this.produttoreAddress = input }}
+                        className="form-control"
+                        placeholder="Indirizzo produttore"
+                    required />
+                </div>
+                <button type="submit" className="btn btn-primary">configura indirizzi</button>
+                </form>
+                <div>
+                </div>  
+                <hr></hr>
+                <div>
+                </div>
+
                 <div>
                     <h5> Leggi CO2 da ID lotto</h5>
                 </div>
