@@ -1,13 +1,11 @@
 # progetto_software_cybersecurity
 
-### Install Dependencies
+### Installation instructions for experts
+Install [Ganache](https://trufflesuite.com/ganache/), install it and initialize, you should have now an instance of Ganache runnging on ```hppt://127.0.0.1:7545```. This is you local blockchain.
 
-- ganache
-- truffle
-- metamask
+Install [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) from Chrome extensions store and configure it to work with Ganache.
 
-### Installation
-First you need to clone the repository on your computer:
+Then you need to clone the repository on your computer:
 
 ```
 git clone https://github.com/tomasrocchetti/progetto_software_cybersecurity.git
