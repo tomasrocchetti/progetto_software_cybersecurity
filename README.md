@@ -41,7 +41,9 @@ Questo blocco è utilizzabile soltanto dall'indirizzo del trasformatore e permet
 Nella fase di inserimento è possibile aggiungere la lista degli ID dei prodotti utilizzati per la trasformazione (ad esempio aggiungo farina e uova per produrre la pasta).  
 Nella lista di prodotti utilizzati ovviamente è possibile inserire prodotti di proprietà dello stesso indirizzo che utilizza la funzione di inserimento del prodotto trasformato, altrimenti all'utente viene segnalato un errore.  
 I prodotti usati per la trasformazione non esistono più, pertanto gli NFT associati ad essi vengono eliminati.  
-Viene generato un nuovo NFT associato al nuovo prodotto trasformato e viene aggiunto al wallet di chi ha fatto l'inserimento.  
+Viene generato un nuovo NFT associato al nuovo prodotto trasformato e viene aggiunto al wallet di chi ha fatto l'inserimento. 
+
+La quantità di CO2 generata nella trasformazione viene sommata ai carbon footprint dei prodotti utilizzati nella trasformaizone.
 
 ### Lista prodotti
 Questo blocco non contiene altro una tabella con tutti i prodotti e le relative caratteristiche.
