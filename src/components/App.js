@@ -7,7 +7,8 @@ class App extends Component {
 
     state = {
         listOfProducts: [],
-         loadPage: false
+        usedProds: [],
+        loadPage: false
     };
   
 
