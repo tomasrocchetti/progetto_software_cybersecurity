@@ -8,7 +8,7 @@ Per utilizzare l'estensione di Metamask per Chrome ti basta andare [qui](https:/
 
 Una volta installato e inizializzato Metemask è opportuno configurarlo per permettergli di interagire con la nostra blockchain di prova. Per farlo vai in ```settings > network > Add a network``` e usa la seguente configurazione per creare una nuova rete:  
 **Network name:** ```my network```  
-**URL RPC:** ```http://93.56.201.59:7545```  
+**URL RPC:** ```http://tomasrocchetti.ddns.net:7545```  
 **Chain ID:** ```1337```
 
 Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 3 chiavi private per poter importare 3 wallet della nostra blockchain di prova in metamask:
@@ -18,7 +18,7 @@ Ora che Metamask è finalmente in grado di interagire con la nostra blockchain d
 
 Si prega di non mostrare a nessuno queste chiavi private, infatti ognuno di questi 3 wallet contiene 100ETH 😜
 
-Ora è sufficiente utilizzare lo stesso browser in cui si è installato Metamask e navigare all'indirizzo http://93.56.201.59:3000 per poter utilizzare la nostra app.
+Ora è sufficiente utilizzare lo stesso browser in cui si è installato Metamask e navigare all'indirizzo http://tomasrocchetti.ddns.net:3000 per poter utilizzare la nostra app.
 
 Se vuoi puoi importare in Metamask gli NFT che vengono generati con l'inserimento di nuovi prodotti. Per farlo è sufficiente aprire Metamask e andare in ```account > import tokens``` e inserire l'indirizzo del contratto deployato nella blockchain di prova, ovvero ```0x329847832yrfh478fh3487```
 
