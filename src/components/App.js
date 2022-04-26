@@ -370,6 +370,7 @@ class App extends Component {
                 <h5> Inserisci Prodotto trasformato (solo trasformatore) </h5>
                 Questa funzione ti permette di aggiungere un nuovo prodotto trasformato. Soltanto il wallet con privilegi di trasformatore può utilizzare questa funzione. inoltre non è necessario inserire un ID, questo verrà generato automaticamente. Per inserire gli ID dei prodotti utilizzati nella trasformazione è sufficiente scrivere gli ID separati da una virgola.
                  Questa funzione, oltre a generare un nuovo token nel portafoglio di chi ha eseguito la funzione, brucia i token associati ai prodotti lavorati. Per questo motivo è possibile inserire dei prodotti nell elenco dei prodotti usati per la trasformazione solo se si è in possesso di essi, altrimenti verrà restituito un errore.
+                 Un prodotto usato per la trasformazione può sia essere una materia priam che un prodotto già precedentemente trasformato.
 
                 <form onSubmit={(event) => {
                     event.preventDefault()
