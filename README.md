@@ -22,51 +22,61 @@ Ora è sufficiente utilizzare lo stesso browser in cui si è installato Metamask
 
 Se vuoi puoi importare in Metamask gli NFT che vengono generati con l'inserimento di nuovi prodotti. Per farlo è sufficiente aprire Metamask e andare in ```account > import tokens``` e inserire l'indirizzo del contratto deployato nella blockchain di prova, ovvero ```0x329847832yrfh478fh3487```
 
-Divertiteci e prestate attenzione alle emissioni di CO2 🌿
+Divertitevi con la nostra app e prestate attenzione alle emissioni di CO2 🌿
 
 ### Installazione locale (per utenti esperti)
-Install [Ganache](https://trufflesuite.com/ganache/), install it and initialize, you should have now an instance of Ganache runnging on ```http://127.0.0.1:7545```. This is you local blockchain.
+Se sei un utente esperto puoi considerare di scaricare il nostro codice ed eseguirlo in locale sulla tua blockchain preferita, negli step successivi verrà presa in considerazione la blockchain Ganache.
+#### Preparazione della blockchain
+Installa [Ganache](https://trufflesuite.com/ganache/), una volta aperta l'applicazione viene chiesto di configurarla, è sufficiente proseguire con le impostazioni predefinite. Una volta installata e inizializzata si avrà un'istanza di Ganache locale in ```http://127.0.0.1:7545```. Questa è la vostra blockchain locale di prova.
 
-Install [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) from Chrome extensions store and configure it to work with Ganache by going to ```settings > network > Add a network``` and using the following settings:  
-**Network name:** my network  
-**URL RPC:** http://127.0.0.1:7545  
-**Chain ID:** 1337
+#### Preparazione di Metamask
+Per utilizzare l'estensione di Metamask per Chrome ti basta andare [qui](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) e premere installa.
 
-Import some wallet addresses from Ganache to Metamask by the private keys provided by Ganache
+Una volta installato e inizializzato Metemask è opportuno configurarlo per permettergli di interagire con la nostra blockchain di prova. Per farlo vai in ```settings > network > Add a network``` e usa la seguente configurazione per creare una nuova rete:  
+**Network name:** ```my network```  
+**URL RPC:** ```http://localhost:7545```  
+**Chain ID:** ```1337```
 
-Then you need to clone the repository on your computer:
+Ora che è tutto configurato non ci resta che visualizzare in Ganache le chiavi private associate ai nostri wallet e utilizzarle per importare i wallet in Metamask.
+
+#### Installazione dell'applicazione
+Scaricare da github lo zip contenente il sorgente o clonare la repo con il comando
 
 ```
 git clone https://github.com/tomasrocchetti/progetto_software_cybersecurity.git
 ```
-Navigate inside the project folder
+Navigare nella cartella del progetto con
 
 ```
 cd progetto_software_cybersecurity
 ```
 
-It is recommended to recompile the smart contracts, so If there are files with json extension inside the ```/src/abis``` directory it is recommended to delete them
+È consigliabile ricompilare lo smart contract, se sono presenti dei file con estensione .json all'interno della cartella ```/src/abis``` si prega di eliminarli
 
-Dependencies can now be installed
+Se necessario installare il gestore di pacchetti ```npm```.
+
+Ora è possibile installare le dipendenze necessarie con
 ```
 npm install
 ```
-Install OpenZeppelin Library to manage ERC721 NFTs
+Installare inoltre le librerie OpenZeppelin, saranno necessarie per l'utilizzo degli NFT ERC721
 ```
 npm install --save-exact openzeppelin-solidity
 ```
-Compile smart contract with 
+Compilare lo smart contract con
 ```
 truffle compile
 ```
-Deploy with
+Fare il deploy dello smart contract con
 ```
 truffle migrate
 ```
-Now you can run the App with
+Infine occorre eseguire l'applicazione con
 ```
 npm run start
 ```
-Finally you can interact with the app via your browser at ```http://127.0.0.1:3000```
+Finalmente puoi interagire con l'applicazione locale aprendo il browser e navigando in ```http://127.0.0.1:3000```, si ricorda sempre di utilizzare il browser in cui è stato configurato Metamask
 
-You can also import NFT in Metamask going to ```account > import tokens``` and inserting the contract address
+Puoi importare in Metamask gli NFT che vengono generati con l'inserimento di nuovi prodotti. Per farlo è sufficiente aprire Metamask e andare in ```account > import tokens``` e inserire l'indirizzo del contratto deployato, puoi ricavare quest'ultimo dall'interfaccia di Ganache.
+
+Divertitevi con la nostra app e prestate attenzione alle emissioni di CO2 🌿
