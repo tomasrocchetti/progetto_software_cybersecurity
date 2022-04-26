@@ -10,7 +10,7 @@
 - ~~controllare che l'array di prodotti usati contenga solo integer~~
 - capire come gestire gli errori, cosi non funzionano bene
 - ~~passare gli address con i privilegi~~
-- listare componenti utilizzate
+- ~~listare componenti utilizzate~~
 
 
 ## Entro 6 maggio
