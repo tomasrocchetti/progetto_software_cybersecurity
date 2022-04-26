@@ -16,7 +16,7 @@ Now you can import some addresses from the chain to Metamask, these are some pri
 
 Please don't show these private keys to anyone, they contain 100ETH each 😜
 
-Use the same browser where you installed metamask to go ```http://192.168.1.50:3000```
+Use the same browser where you installed metamask to go to ```http://192.168.1.50:3000```
 
 Enjoy
 
