@@ -2,14 +2,14 @@
 - ~~Caricare i valori dei prodotti negli array~~
 - ~~Caricarre i valori degli array in una tabella che elenca i prodotti~~
 - ~~Refresh pagina after addMateriaPrima~~
-- passare indirizzi al costruttore (o indirizzi hardcoded?)
+- ~~passare indirizzi al costruttore (o indirizzi hardcoded?)~~
 - ~~abilitare trasferimento token~~
 - ~~sanificazione input array prodotti usati~~
 - ~~aggiunto owner alla lista~~
 - ~~bruciare i token qunado il prodotto viene trasformato~~
 - ~~controllare che l'array di prodotti usati contenga solo integer~~
 - capire come gestire gli errori, cosi non funzionano bene
-- passare gli address con i privilegi
+- ~~passare gli address con i privilegi~~
 - listare componenti utilizzate
 
 
