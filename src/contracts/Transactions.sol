@@ -148,6 +148,13 @@ restituisce il nome di un prodotto dato il suo ID
 function getNameByID(uint _ID) view public returns (string memory){
     return Products[_ID].name;
     }
+    
+/**
+restituisce l'array contenente la lista dei prodotti utilizzati per la trasformazione
+**/    
+function getUsedProductForTransform(uint _ID) view public returns (uint[] memory){
+    return Products[_ID].productsUsedToProcessIDs;
+}
 
 /**
 restituisce la quantità di un prodotto dato il suo ID
