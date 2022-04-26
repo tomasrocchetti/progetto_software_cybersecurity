@@ -1,4 +1,4 @@
-# progetto_software_cybersecurity
+# Carbon Footprint Tracker
 
 ## Istruzioni di utilizzo per dilettanti
 
