@@ -43,7 +43,7 @@ event newProdottoTrasformato (string name, uint ID, uint sommaCO2, uint[] produc
 /**
 nel costruttore vengono definiti il nome e il simbolo dei token
 **/
-constructor () public ERC721 ("carbonfootprint", "CBF"){}
+constructor () ERC721 ("carbonfootprint", "CBF"){}
  
 /**
 funzione per aggiungere un nuovo prodotto (materia prima), chiede in ingresso tutti gli attributi necessari
