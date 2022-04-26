@@ -11,7 +11,7 @@ contract Transactions is ERC721{
 /**
 indirizzi relativi agli attori hardcoded nel codice
 **/
-address produttore = 0x513Cd7f2bBBB9C125534Ad79B1a641cD0192a445;
+address produttore;
 address trasformatore;
 address cliente;
 
@@ -167,6 +167,15 @@ function idExist(uint _ID) view public returns (bool){
          exist = true;
      }
      return (exist);
+    }
+
+/**
+serve per configurare gli indirizzi che hanno il permesso di eseguire operazioni da produttore
+e quelli che hanno il permesso di eseguire operazioni da trasformatore
+**/ 
+function setAddresses(address customProduttore, address customTrasformatore) public{
+    produttore = customProduttore;
+    trasformatore = customTrasformatore;
     }
     
 }  
