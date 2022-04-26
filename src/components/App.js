@@ -211,7 +211,7 @@ class App extends Component {
         if (this.state.loadPage){
             return (
                 <div id="content">
-                <h1>Aggiungi un Prodotto</h1>
+                <h1>Carbon Footprint Tracker</h1>
                 <h9>Il tuo indirizzo è: {this.state.account}</h9>
                 <hr></hr>
         
