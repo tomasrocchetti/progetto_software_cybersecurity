@@ -18,6 +18,8 @@ Please don't show these private keys to anyone, they contain 100ETH each 😜
 
 Use the same browser where you installed metamask to go to ```http://192.168.1.50:3000```
 
+You can also import NFT in Metamask going to ```account > import tokens``` and inserting the contract address ```0x329847832yrfh478fh3487```
+
 Enjoy the app
 
 ### Installation instructions for experts
@@ -27,6 +29,8 @@ Install [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeog
 **Network name:** my network  
 **URL RPC:** http://127.0.0.1:7545  
 **Chain ID:** 1337
+
+Import some wallet addresses from Ganache to Metamask by the private keys provided by Ganache
 
 Then you need to clone the repository on your computer:
 
@@ -62,3 +66,5 @@ Now you can run the App with
 npm run start
 ```
 Finally you can interact with the app via your browser at ```http://127.0.0.1:3000```
+
+You can also import NFT in Metamask going to ```account > import tokens``` and inserting the contract address
