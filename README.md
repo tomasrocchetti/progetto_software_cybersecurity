@@ -1,28 +1,30 @@
 # progetto_software_cybersecurity
 
-### Usage instructions for dummies
+### Istruzioni di utilizzo per dilettanti
 
-Install [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) from Chrome extensions store
+Se non sei molto pratico e vuoi soltanto provare la nostra applicazione potresti considerare di collegarti alla nostra blockchain di test e accedere al Carbon Footprint Tracker direttamente sul nostro server via Browser. Per fare ciò ti basta installare e configurare Metamask, un wallet ethereum disponibile sia come applicazione Android/iOS che come estensione per Chrome o Firefox.
 
-In Metamask go to ```settings > network > Add a network``` and use the following settings:  
-**Network name:** my network  
-**URL RPC:** 192.168.1.50:7545  
-**Chain ID:** 1337
+Per utilizzare l'estensione di Metamask per Chrome ti basta andare [qui](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) e premere installa.
 
-Now you can import some addresses from the chain to Metamask, these are some private keys for importing:
+Una volta installato e inizializzato Metemask è opportuno configurarlo per permettergli di interagire con la nostra blockchain di prova. Per farlo vai in ```settings > network > Add a network``` e usa la seguente configurazione per creare una nuova rete:  
+**Network name:** ```my network```  
+**URL RPC:** ```http://93.56.201.59:7545```  
+**Chain ID:** ```1337```
+
+Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 3 chiavi private per poter importare 3 wallet della nostra blockchain di prova in metamask:
 ```eebf0a958e8ee4cb847f8092cbeef306cc171298f70eb58595fd834fb1a51d82```
 ```fcdb750ce7595b57c01cd61ffc28fd3df238684b7fc720b67d9b11c266f769ce```
 ```ca6eee18649acd7a0ea8ecfa61597f22b82f20522a9b9c9b6d8999442fda2b2e```
 
-Please don't show these private keys to anyone, they contain 100ETH each 😜
+Si prega di non mostrare a nessuno queste chiavi private, infatti ognuno di questi 3 wallet contiene 100ETH 😜
 
-Use the same browser where you installed metamask to go to ```http://192.168.1.50:3000```
+Ora è sufficiente utilizzare lo stesso browser in cui si è installato Metamask e navigare all'indirizzo http://93.56.201.59:3000 per poter utilizzare la nostra app.
 
-You can also import NFT in Metamask going to ```account > import tokens``` and inserting the contract address ```0x329847832yrfh478fh3487```
+Se vuoi puoi importare in Metamask gli NFT che vengono generati con l'inserimento di nuovi prodotti. Per farlo è sufficiente aprire Metamask e andare in ```account > import tokens``` e inserire l'indirizzo del contratto deployato nella blockchain di prova, ovvero ```0x329847832yrfh478fh3487```
 
-Enjoy the app
+Divertiteci e prestate attenzione alle emissioni di CO2 🌿
 
-### Installation instructions for experts
+### Installazione locale (per utenti esperti)
 Install [Ganache](https://trufflesuite.com/ganache/), install it and initialize, you should have now an instance of Ganache runnging on ```http://127.0.0.1:7545```. This is you local blockchain.
 
 Install [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) from Chrome extensions store and configure it to work with Ganache by going to ```settings > network > Add a network``` and using the following settings:  
