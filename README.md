@@ -5,8 +5,11 @@
 Install [Metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) from Chrome extensions store
 
 In Metamask go to ```settings > network > Add a network```:
+
 Network name: my network
+
 URL RPC: 192.168.1.50:7545
+
 Chain ID: 1337
 
 Now you can import some addresses from the chain to Metamask, these are some private keys for importing:
