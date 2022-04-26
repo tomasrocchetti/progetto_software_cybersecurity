@@ -209,7 +209,7 @@ class App extends Component {
             return (
                 <div id="content">
                 <h1>Aggiungi un Prodotto</h1>
-                <h9>{this.state.account}</h9>
+                <h9>Il tuo indirizzo è: {this.state.account}</h9>
                 <hr></hr>
         
                 <div>
