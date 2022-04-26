@@ -1,5 +1,31 @@
 # Carbon Footprint Tracker
 
+## Descrizione dell'applicazione
+Questa applicazione ci permette di tenere traccia di tutte le emissioni di CO2 emesse nel ciclo di vita di un prodotto, dalla produzione della materia prima all'arrivo del prodotto al consumatore, passando per le varie trasformazioni che possono essere fatte su un prodotto.
+
+Possiamo schematizzare il funzionamento in questo modo:
+- Un produttore produce una materia prima (ad esempio acqua, uova, grano).
+- Il produttore trasferisce la pripria materia prima ad un trasformatore.
+- Il trasformatore utilizza le materie prime in proprio possesso per generare un prodotto lavorato (ad esemprio trasforma il grano in farina).
+- Il trasformatore ora può proseguire in 2 direzioni:
+   - Trasferire il prodotto trasformato direttamente ad un cliente.
+   - Trasferire il prodotto trasformato ad un altro trasformatore (ad esempio vende la farina ad un trasformatore per produrre pasta).
+
+Ovviamente per completare la trasformazione di un prodotto verrà emessa una certa quantità di CO2, pertanto quando viene generato un prodotto trasformato si sommano i Carbon Footprint delle materie prime alla quantità di CO2 emessa in fase di trasformazione.
+
+
+Ogni prodotto è direttamnte associato ad un NFT per garantire l'autenticità del prodotto stesso e del suo Carbon Footprint.
+
+## Interfaccia utente
+L'interfaccia utente è stata suddivisa in 6 blocchi, ciascuno con una specifica funzione, analizziamo quindi i blocchi uno ad uno:
+
+### Configura indirizzi
+### Leggi informazioni prodotto
+### Trasferisci Token
+### Inserisci materia prima
+### inserisci prodotto trasformato
+### Lista prodotti
+
 ## Istruzioni di utilizzo per dilettanti
 
 Se non sei molto pratico e vuoi soltanto provare la nostra applicazione potresti considerare di collegarti alla nostra blockchain di test e accedere al Carbon Footprint Tracker direttamente sul nostro server via Browser. Per fare ciò ti basta installare e configurare Metamask, un wallet ethereum disponibile sia come applicazione Android/iOS che come estensione per Chrome o Firefox.
