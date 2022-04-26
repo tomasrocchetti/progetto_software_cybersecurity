@@ -1,6 +1,6 @@
 # progetto_software_cybersecurity
 
-### Istruzioni di utilizzo per dilettanti
+## Istruzioni di utilizzo per dilettanti
 
 Se non sei molto pratico e vuoi soltanto provare la nostra applicazione potresti considerare di collegarti alla nostra blockchain di test e accedere al Carbon Footprint Tracker direttamente sul nostro server via Browser. Per fare ciò ti basta installare e configurare Metamask, un wallet ethereum disponibile sia come applicazione Android/iOS che come estensione per Chrome o Firefox.
 
@@ -24,12 +24,12 @@ Se vuoi puoi importare in Metamask gli NFT che vengono generati con l'inseriment
 
 Divertitevi con la nostra app e prestate attenzione alle emissioni di CO2 🌿
 
-### Installazione locale (per utenti esperti)
+## Installazione locale (per utenti esperti)
 Se sei un utente esperto puoi considerare di scaricare il nostro codice ed eseguirlo in locale sulla tua blockchain preferita, negli step successivi verrà presa in considerazione la blockchain Ganache.
-#### Preparazione della blockchain
+### Preparazione della blockchain
 Installa [Ganache](https://trufflesuite.com/ganache/), una volta aperta l'applicazione viene chiesto di configurarla, è sufficiente proseguire con le impostazioni predefinite. Una volta installata e inizializzata si avrà un'istanza di Ganache locale in ```http://127.0.0.1:7545```. Questa è la vostra blockchain locale di prova.
 
-#### Preparazione di Metamask
+### Preparazione di Metamask
 Per utilizzare l'estensione di Metamask per Chrome ti basta andare [qui](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) e premere installa.
 
 Una volta installato e inizializzato Metemask è opportuno configurarlo per permettergli di interagire con la nostra blockchain di prova. Per farlo vai in ```settings > network > Add a network``` e usa la seguente configurazione per creare una nuova rete:  
@@ -39,7 +39,7 @@ Una volta installato e inizializzato Metemask è opportuno configurarlo per perm
 
 Ora che è tutto configurato non ci resta che visualizzare in Ganache le chiavi private associate ai nostri wallet e utilizzarle per importare i wallet in Metamask.
 
-#### Installazione dell'applicazione
+### Installazione dell'applicazione
 Scaricare da github lo zip contenente il sorgente o clonare la repo con il comando
 
 ```
