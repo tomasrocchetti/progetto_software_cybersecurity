@@ -19,23 +19,23 @@ Ogni prodotto è direttamnte associato ad un NFT per garantire l'autenticità de
 ## 👩‍💻 Interfaccia utente
 L'interfaccia utente è stata suddivisa in 6 blocchi, ciascuno con una specifica funzione, analizziamo quindi i blocchi uno ad uno:
 
-- 1️⃣ Configura indirizzi
+#### 1️⃣ Configura indirizzi
 Questo blocco permette di scegliere quale indirizzo ha la possibilità di eseguire le operazioni con i privilegi di produttore (ovvero aggiungere materie prime) e quale indirizzo ha la possibilità di eseguire operazioni con i privilegi di trasformatore (ovvero aggiungere prodotti trasformati).  
 Questa funzione puo essere utilizzata qualsiasi sia l'indirizzo che invoca il contratto. È soltanto una funzione per fare dei test con l'applicazione.
 
-- 2️⃣ Leggi informazioni prodotto
+#### 2️⃣ Leggi informazioni prodotto
 Questo blocco permette, dato un ID, di ottenere tutte le informazioni di un prodotto, tra cui l'indirizzo del possessore del token associato a quel prodotto e una lista dei prodotti utilizzati nella trasformazione.  
 È importante specificare che se l'indirizzo del possessore dovesse essere ```0x0000000000000000000000000``` significa che quel prodotto è gia stato utilizzato in una trasformazione, pertanto non esiste più (come ad esmpio il grano dopo che sia gia stata prodotta la farina).
 
-- 3️⃣ Trasferisci Token
+#### 3️⃣ Trasferisci Token
 Questa funzione ci permette di trasferire la proprietà degli NFT da un wallet ad un altro, questo si traduce nel trasferire la proprietà di un prodotto. Chiunque può utilizzare la funzione, ma la transazione andrà a buon fine soltanto se chi decide di trasferire il token è il proprietario dello stesso.
 
 Questa funzione incorpora tecniche di sanificazione dell'input per verificare che l'indirizzo di destinazione sia effettivamente un indirizzo, ma non verifica in alcun modo che l'indirizzo di destinazione sia un indirizzo attivo, questo per lasciare all'utente la massima flessibilità sui trasferimenti dei token.
 
-- 4️⃣ Inserisci materia prima
+#### 4️⃣ Inserisci materia prima
 Questo blocco è utilizzabile soltanto dall'indirizzo del produttore e permette di inserire nella lista di prodotti una nuova materia prima. La nuova materia prima inserita avrà associato un ID generato automaticamente in base alla data e all'ora. Insieme alla materia prima viene creato un NFT ad essa associato, con il medesimo ID. E viene accreditato nel portafogli di chi ha eseguito l'operazione di inserimento.
 
-- 5️⃣ inserisci prodotto trasformato
+#### 5️⃣ inserisci prodotto trasformato
 Questo blocco è utilizzabile soltanto dall'indirizzo del trasformatore e permette di inserire nella lista dei prodotti un nuovo prodotto trasformato. Come nel caso dell'inserimento della materia prima viene generato un ID e viene generato un token associato al prodotto trasformato inserito. 
 
 Nella fase di inserimento è possibile aggiungere la lista degli ID dei prodotti utilizzati per la trasformazione (ad esempio aggiungo farina e uova per produrre la pasta).  
@@ -45,7 +45,7 @@ Viene generato un nuovo NFT associato al nuovo prodotto trasformato e viene aggi
 
 La quantità di CO2 generata nella trasformazione viene sommata ai carbon footprint dei prodotti utilizzati nella trasformaizone.
 
-- 6️⃣ Lista prodotti
+#### 6️⃣ Lista prodotti
 Questo blocco non contiene altro una tabella con tutti i prodotti e le relative caratteristiche.
 
 ## 🐐 Istruzioni di utilizzo per dilettanti
@@ -74,10 +74,10 @@ Divertitevi con la nostra app e prestate attenzione alle emissioni di CO2 🌿
 
 ## 🧑‍🔬 Installazione locale (per utenti esperti)
 Se sei un utente esperto puoi considerare di scaricare il nostro codice ed eseguirlo in locale sulla tua blockchain preferita, negli step successivi verrà presa in considerazione la blockchain Ganache.
-- 🔗 Preparazione della blockchain
+#### 🔗 Preparazione della blockchain
 Installa [Ganache](https://trufflesuite.com/ganache/), una volta aperta l'applicazione viene chiesto di configurarla, è sufficiente proseguire con le impostazioni predefinite. Una volta installata e inizializzata si avrà un'istanza di Ganache locale in ```http://127.0.0.1:7545```. Questa è la vostra blockchain locale di prova.
 
-- 🦊 Preparazione di Metamask
+#### 🦊 Preparazione di Metamask
 Per utilizzare l'estensione di Metamask per Chrome ti basta andare [qui](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) e premere installa.
 
 Una volta installato e inizializzato Metemask è opportuno configurarlo per permettergli di interagire con la nostra blockchain di prova. Per farlo vai in ```settings > network > Add a network``` e usa la seguente configurazione per creare una nuova rete:  
@@ -87,7 +87,7 @@ Una volta installato e inizializzato Metemask è opportuno configurarlo per perm
 
 Ora che è tutto configurato non ci resta che visualizzare in Ganache le chiavi private associate ai nostri wallet e utilizzarle per importare i wallet in Metamask.
 
-- ⬇️ Installazione dell'applicazione
+#### ⬇️ Installazione dell'applicazione
 Scaricare da github lo zip contenente il sorgente o clonare la repo con il comando
 
 ```
