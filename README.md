@@ -60,7 +60,7 @@ Una volta installato e inizializzato Metemask è opportuno configurarlo per perm
 **Chain ID:** ```1337```
 
 Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 3 chiavi private per poter importare 3 wallet della nostra blockchain di prova in metamask:
-```0xcf21728b2134d0abcf6c1c9e78cf3746c20715d43c5940c764d1b475e8b6e96f```
+```0x7ac2172ce06c5d13b81a53ec73a763506d5cd8032eb43b256b879ee9be60de76```
 ```0xcc396e70afd2b983fa79bf5cd5acc10e0bae87e5421728147e142e4e8726aeaf```
 ```0xaa926a4091804f38f4e0d675fb2c8ea18fa6c3431165dbd2cfba57c291072ce6```
 
