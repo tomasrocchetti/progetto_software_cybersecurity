@@ -56,7 +56,7 @@ Per utilizzare l'estensione di Metamask per Chrome ti basta andare [qui](https:/
 
 Una volta installato e inizializzato Metemask è opportuno configurarlo per permettergli di interagire con la nostra blockchain di prova. Per farlo vai in ```settings > network > Add a network``` e usa la seguente configurazione per creare una nuova rete:  
 **Network name:** ```tnet```  
-**URL RPC:** ```http://tomasrocchetti.ddns.net:7545```  
+**URL RPC:** ```http://tomasrocchetti.ddns.net:8545```  
 **Chain ID:** ```1337```
 
 Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 3 chiavi private per poter importare 3 wallet della nostra blockchain di prova in metamask:
