@@ -6,16 +6,16 @@ import 'openzeppelin-solidity/contracts/token/ERC721/ERC721.sol';
 
 contract Transactions is ERC721{
 
-/**
+/**************************************************************************************************
 indirizzi relativi agli attori hardcoded nel codice
-**/
+**************************************************************************************************/
 address produttore;
 address trasformatore;
 address cliente;
 
-/**
+/**************************************************************************************************
 struttura che definisce il tipo Product, ovvero il prodotto e tutti i suoi attributi
-**/
+**************************************************************************************************/
 struct Product {
     string name;    // nome del prodotto
     uint ID;  // identificativo univoco del prodotto (anche numero di lotto)
@@ -25,31 +25,31 @@ struct Product {
     uint quantity;  //quantità di prodotto, utile anche nel caso in cui per un prodotto finale venga usata solo una parte di un lotto di materia prima
     }
 
-/**
+/**************************************************************************************************
 mapping della lista prodotti e generazione dell'array contenente l'ID di ogni prodotto
 grazie al mapping è facile trovare un prodotto in base al proprio ID
-**/
+**************************************************************************************************/
 mapping (uint => Product) Products;
 uint[] public productIDs;
 
-/**
+/**************************************************************************************************
 definizione degli eventi 
-**/
+**************************************************************************************************/
 event newMateriaPrima (string name, uint ID, uint gCO2, uint quantity);
 event newProdottoTrasformato (string name, uint ID, uint sommaCO2, uint[] productsUsedToProcessID, uint quantity);
 
-/**
+/**************************************************************************************************
 nel costruttore vengono definiti il nome e il simbolo dei token
-**/
+**************************************************************************************************/
 constructor () ERC721 ("carbonfootprint", "CBF"){}
  
-/**
-funzione per aggiungere un nuovo prodotto (materia prima), chiede in ingresso tutti gli attributi necessari
-alla definizione di una nuova materia prima, richiede che l'indirizzo di chi invoca la funzione
-sia l'indirizzo di un produttore, inoltre richiede che l'ID che si è inserito per il nuovo prodotto
-non sia gia stato usato.
+/**************************************************************************************************
+funzione per aggiungere un nuovo prodotto (materia prima), chiede in ingresso tutti gli attributi
+necessari alla definizione di una nuova materia prima, richiede che l'indirizzo di chi invoca la 
+funzione sia l'indirizzo di un produttore, inoltre richiede che l'ID che si è inserito per il nuovo 
+prodotto non sia gia stato usato.
 Viene anche generato un token associato al prodotto inserito
-**/
+**************************************************************************************************/
 function addMateriaPrima(string memory _name, uint _ID,  uint _gCO2, uint _quantity) public {
        
        // si assicura che sia soltanto il produttore ad aggiungere nuove materie prime
@@ -69,19 +69,21 @@ function addMateriaPrima(string memory _name, uint _ID,  uint _gCO2, uint _quant
        _mint(msg.sender, _ID);
     }
 
-/**
-funzione per aggiungere un nuovo prodotto (prodotto trasformato), chiede in ingresso tutti gli attributi necessari
-alla definizione di una nuovo prodotto, quindi anche le materie prime o altri prodotti usati per la trasformazione.
+/**************************************************************************************************
+funzione per aggiungere un nuovo prodotto (prodotto trasformato), chiede in ingresso tutti gli 
+attributi necessari alla definizione di una nuovo prodotto, quindi anche le materie prime o altri 
+prodotti usati per la trasformazione.
 Richiede che l'indirizzo di chi invoca la funzione sia l'indirizzo di un trasformatore, 
 inoltre richiede che l'ID che si è inserito per il nuovo prodotto
 non sia gia stato usato.
 vengono sommati i valori del carbon footprint dei prodotti usati per la trasformazione.
 Viene generato un token associato al prodotto inserito e vengono bruciati i token dei
-prodotti usati per la trasformazione, per questo motivo è necessario che i token dei prodotti usati per la trasformazione 
-siano di proprietà dell'indirizzo che invoca la funzione
-Sarebbe possibile accorpare addProdottoTrasformato con addMateriaPrima, nonostante ciò è stato deciso di separare
-completamente le due funzioni per dare maggiore madularità al programma, e per modificarlo in futuro
-**/
+prodotti usati per la trasformazione, per questo motivo è necessario che i token dei prodotti usati 
+per la trasformazione siano di proprietà dell'indirizzo che invoca la funzione
+Sarebbe possibile accorpare addProdottoTrasformato con addMateriaPrima, nonostante ciò è stato 
+deciso di separare completamente le due funzioni per dare maggiore madularità al programma, e per 
+modificarlo in futuro
+**************************************************************************************************/
 function addProdottoTrasformato(string memory _name, uint _ID,  uint _gCO2_production, uint[] memory _productsUsedToProcessID, uint _quantity) public {
        
        // si assicura che sia soltanto il trasformatore ad aggiungere nuovi prodotti 
@@ -111,9 +113,10 @@ function addProdottoTrasformato(string memory _name, uint _ID,  uint _gCO2_produ
         _mint(msg.sender, _ID);
     }
     
-/**
-restituisce l'indirizzo del proprietario di un token, se il token non esiste restituisce un indirizzo formato da zeri
-**/ 
+/**************************************************************************************************
+restituisce l'indirizzo del proprietario di un token, se il token non esiste restituisce un 
+indirizzo formato da zeri
+**************************************************************************************************/ 
 function getOwner(uint tokenId) view public returns (address){
     if(_exists(tokenId)){
         return ownerOf(tokenId);
@@ -122,51 +125,51 @@ function getOwner(uint tokenId) view public returns (address){
         }
     }
 
-/**
+/**************************************************************************************************
 trasferisce un token da un indirizzo ad un altro
-**/ 
+**************************************************************************************************/ 
 function transferToken(address toAddress, uint tokenId) public{
     _transfer(msg.sender, toAddress, tokenId);
     }    
 
-/**
+/**************************************************************************************************
 restituisce il valore di carbon footprint dato l'ID di un prodotto
-**/ 
+**************************************************************************************************/ 
 function getCO2ByID(uint _ID) view public returns (uint){
     return Products[_ID].gCO2;
     }
    
-/**
+/**************************************************************************************************
 restituisce il numero di prodotti presenti in catalogo
-**/ 
+**************************************************************************************************/ 
 function getLen() view public returns (uint){
     return productIDs.length;
     }
 
-/**
+/**************************************************************************************************
 restituisce il nome di un prodotto dato il suo ID
-**/ 
+**************************************************************************************************/ 
 function getNameByID(uint _ID) view public returns (string memory){
     return Products[_ID].name;
     }
     
-/**
+/**************************************************************************************************
 restituisce l'array contenente la lista dei prodotti utilizzati per la trasformazione
-**/    
+**************************************************************************************************/    
 function getUsedProductForTransform(uint _ID) view public returns (uint[] memory){
     return Products[_ID].productsUsedToProcessIDs;
 }
 
-/**
+/**************************************************************************************************
 restituisce la quantità di un prodotto dato il suo ID
-**/ 
+**************************************************************************************************/ 
 function getQtyByID(uint _ID) view public returns (uint){
     return Products[_ID].quantity;
     }
     
-/**
+/**************************************************************************************************
 controlla se un ID esiste oppure no
-**/     
+**************************************************************************************************/     
 function idExist(uint _ID) view public returns (bool){
      bool exist = true;
      if(Products[_ID].ID == 0){
@@ -177,10 +180,10 @@ function idExist(uint _ID) view public returns (bool){
      return (exist);
     }
 
-/**
+/**************************************************************************************************
 serve per configurare gli indirizzi che hanno il permesso di eseguire operazioni da produttore
 e quelli che hanno il permesso di eseguire operazioni da trasformatore
-**/ 
+**************************************************************************************************/ 
 function setAddresses(address customProduttore, address customTrasformatore) public{
     produttore = customProduttore;
     trasformatore = customTrasformatore;
