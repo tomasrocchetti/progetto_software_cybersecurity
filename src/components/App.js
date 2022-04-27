@@ -252,7 +252,7 @@ class App extends Component {
                 </div>
 
                 <div>
-                <h5> Leggi CO2 da ID lotto</h5>
+                <h5> Ottieni info Prodotto</h5>
                 Qui puoi inserire un ID di un prodotto per ottenere le informazioni relative al suo impatto energetico. Se inserisci un ID di un prodotto trasformato verranno anche elencati tutti i prodotti utilizzati per la trasformazione.
 
                 </div>
@@ -269,7 +269,7 @@ class App extends Component {
                         step="1"
                         ref={(input) => { this.productID = input }}
                         className="form-control"
-                        placeholder="ID"
+                        placeholder="ID (es. 20220304112330)"
                     required />
                 </div>
                 <button type="submit" className="btn btn-primary">leggi info</button>
