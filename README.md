@@ -10,6 +10,7 @@ Possiamo schematizzare il funzionamento in questo modo:
 - Il trasformatore ora può proseguire in 2 direzioni:
    - Trasferire il prodotto trasformato direttamente ad un cliente.
    - Trasferire il prodotto trasformato ad un altro trasformatore (ad esempio vende la farina ad un trasformatore per produrre pasta).
+- Chiunque puo leggere le informazioni sul carbon footprint e tracciare la storia di trasformazione dei prodotti
 
 Ovviamente per completare la trasformazione di un prodotto verrà emessa una certa quantità di CO2, pertanto quando viene generato un prodotto trasformato si sommano i Carbon Footprint delle materie prime alla quantità di CO2 emessa in fase di trasformazione.
 
