@@ -6,8 +6,6 @@ import 'openzeppelin-solidity/contracts/token/ERC721/ERC721.sol';
 
 contract Transactions is ERC721{
 
-
-
 /**
 indirizzi relativi agli attori hardcoded nel codice
 **/
@@ -81,6 +79,8 @@ vengono sommati i valori del carbon footprint dei prodotti usati per la trasform
 Viene generato un token associato al prodotto inserito e vengono bruciati i token dei
 prodotti usati per la trasformazione, per questo motivo è necessario che i token dei prodotti usati per la trasformazione 
 siano di proprietà dell'indirizzo che invoca la funzione
+Sarebbe possibile accorpare addProdottoTrasformato con addMateriaPrima, nonostante ciò è stato deciso di separare
+completamente le due funzioni per dare maggiore madularità al programma, e per modificarlo in futuro
 **/
 function addProdottoTrasformato(string memory _name, uint _ID,  uint _gCO2_production, uint[] memory _productsUsedToProcessID, uint _quantity) public {
        
