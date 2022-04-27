@@ -54,7 +54,7 @@ Viene anche generato un token associato al prodotto inserito
 **/
 function addMateriaPrima(string memory _name, uint _ID,  uint _gCO2, uint _quantity) public {
        
-       // si assicura che sia soltanto il produttore ad aggiungere nuovi materie prime
+       // si assicura che sia soltanto il produttore ad aggiungere nuove materie prime
        require(msg.sender == produttore);
        require(!idExist(_ID));
        
@@ -77,9 +77,10 @@ alla definizione di una nuovo prodotto, quindi anche le materie prime o altri pr
 Richiede che l'indirizzo di chi invoca la funzione sia l'indirizzo di un trasformatore, 
 inoltre richiede che l'ID che si è inserito per il nuovo prodotto
 non sia gia stato usato.
-vengono sommati i calori del carbon footprint dei prodotti usati per la trasformazione
+vengono sommati i valori del carbon footprint dei prodotti usati per la trasformazione.
 Viene generato un token associato al prodotto inserito e vengono bruciati i token dei
-prodotti usait per la trasformazione
+prodotti usati per la trasformazione, per questo motivo è necessario che i token dei prodotti usati per la trasformazione 
+siano di proprietà dell'indirizzo che invoca la funzione
 **/
 function addProdottoTrasformato(string memory _name, uint _ID,  uint _gCO2_production, uint[] memory _productsUsedToProcessID, uint _quantity) public {
        
