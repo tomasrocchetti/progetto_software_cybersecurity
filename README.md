@@ -55,7 +55,7 @@ Se non sei molto pratico e vuoi soltanto provare la nostra applicazione potresti
 Per utilizzare l'estensione di Metamask per Chrome ti basta andare [qui](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) e premere installa.
 
 Una volta installato e inizializzato Metemask è opportuno configurarlo per permettergli di interagire con la nostra blockchain di prova. Per farlo vai in ```settings > network > Add a network``` e usa la seguente configurazione per creare una nuova rete:  
-**Network name:** ```my network```  
+**Network name:** ```tnet```  
 **URL RPC:** ```http://tomasrocchetti.ddns.net:7545```  
 **Chain ID:** ```1337```
 
