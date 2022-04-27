@@ -22,6 +22,7 @@ L'interfaccia utente è stata suddivisa in 6 blocchi, ciascuno con una specifica
 #### 1️⃣ Configura indirizzi
 Questo blocco permette di scegliere quale indirizzo ha la possibilità di eseguire le operazioni con i privilegi di produttore (ovvero aggiungere materie prime) e quale indirizzo ha la possibilità di eseguire operazioni con i privilegi di trasformatore (ovvero aggiungere prodotti trasformati).  
 Questa funzione puo essere utilizzata qualsiasi sia l'indirizzo che invoca il contratto. È soltanto una funzione per fare dei test con l'applicazione.
+![indirizzi](/images/indirizzi.png)
 
 #### 2️⃣ Leggi informazioni prodotto
 Questo blocco permette, dato un ID, di ottenere tutte le informazioni di un prodotto, tra cui l'indirizzo del possessore del token associato a quel prodotto e una lista dei prodotti utilizzati nella trasformazione.  
