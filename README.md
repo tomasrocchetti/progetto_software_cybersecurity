@@ -30,6 +30,10 @@ Questo blocco permette, dato un ID, di ottenere tutte le informazioni di un prod
 È importante specificare che se l'indirizzo del possessore dovesse essere ```0x0000000000000000000000000``` significa che quel prodotto è gia stato utilizzato in una trasformazione, pertanto non esiste più (come ad esmpio il grano dopo che sia gia stata prodotta la farina).
 ![read_info](/images/read_info.png)
 
+Nel momento in cui viene premuto il tasto di conferma il sito restituisce un alert con tutte le informazioni riguardanti il prodotto.
+![alert_info](/images/alert_info.png)
+
+
 #### 3️⃣ Trasferisci Token
 Questa funzione ci permette di trasferire la proprietà degli NFT da un wallet ad un altro, questo si traduce nel trasferire la proprietà di un prodotto. Chiunque può utilizzare la funzione, ma la transazione andrà a buon fine soltanto se chi decide di trasferire il token è il proprietario dello stesso.
 
