@@ -79,7 +79,7 @@ Si prega di non mostrare a nessuno queste chiavi private, infatti ognuno di ques
 
 Ora è sufficiente utilizzare lo stesso browser in cui si è installato Metamask e navigare all'indirizzo http://tomasrocchetti.ddns.net:3000 per poter utilizzare la nostra app.
 
-Se vuoi puoi importare in Metamask gli NFT che vengono generati con l'inserimento di nuovi prodotti. Per farlo è sufficiente aprire Metamask e andare in ```account > import tokens``` e inserire l'indirizzo del contratto deployato nella blockchain di prova, ovvero ```0xf02F26b2D0120C2459823aA5E2151C67a2CbDe97```
+Se vuoi puoi importare in Metamask gli NFT che vengono generati con l'inserimento di nuovi prodotti. Per farlo è sufficiente aprire Metamask e andare in ```account > import tokens``` e inserire l'indirizzo del contratto deployato nella blockchain di prova, ovvero ```0xa21246e22dD83F3e06B138cC6CdD673e275c9B1e```
 
 Divertitevi con la nostra app e prestate attenzione alle emissioni di CO2 🌿
 
