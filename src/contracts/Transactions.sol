@@ -19,11 +19,11 @@ struttura che definisce il tipo Product, ovvero il prodotto e tutti i suoi attri
 **************************************************************************************************/
 struct Product {
     string name;    // nome del prodotto
-    uint ID;  // identificativo univoco del prodotto (anche numero di lotto)
-    uint gCO2;  // grammi di CO2 usati per produrre o per fare la trasformazione
-    bool isProcessed;   // 0 se è una materia prima, 1 se è un derivato
-    uint[] productsUsedToProcessIDs;    // se è un derivato elencare tutti gli ID delle materie prime usate, deve essere un array
-    uint quantity;  //quantità di prodotto, utile anche nel caso in cui per un prodotto finale venga usata solo una parte di un lotto di materia prima
+    uint ID;  // identificativo univoco del prodotto (similmente al numero di lotto)
+    uint gCO2;  // grammi di CO2 usati per produrre una materia prima o per la trasformazione di un prodotto
+    bool isProcessed;   // 0 se è una materia prima, 1 se è un prodotto derivato
+    uint[] productsUsedToProcessIDs;    // se si tratta di un prodotto derivato elencare tutti gli ID delle materie prime usate. [N.B. E' un array]
+    uint quantity;  //quantità di prodotto, utile anche nel caso in cui per un prodotto trasformato venga usata solo una parte di un lotto di materia prima
     }
 
 
