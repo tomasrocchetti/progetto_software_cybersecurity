@@ -65,14 +65,18 @@ Se non sei molto pratico e vuoi soltanto provare la nostra applicazione potresti
 
 Per utilizzare l'estensione di Metamask per Chrome ti basta andare [qui](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=it) e premere installa.
 
-Una volta installato e inizializzato Metemask è opportuno configurarlo per permettergli di interagire con la blockchain di prova utilizzata: Rinkeby . Per farlo vai in ```settings > network``` e scegli la rete ```Rete di test Rinkeby```.  
+Una volta installato e inizializzato Metemask è opportuno configurarlo per permettergli di interagire con la nostra blockchain di prova. Per farlo vai in ```settings > network > Add a network``` e usa la seguente configurazione per creare una nuova rete:  
+ **Network name:** ```tnet```  
+ **URL RPC:** ```http://tomasrocchetti.ddns.net:8545```  
+ **Chain ID:** ```1337```
 
+ Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 3 chiavi private per poter importare 3 wallet della nostra blockchain di prova in metamask:
+ ```0xcf21728b2134d0abcf6c1c9e78cf3746c20715d43c5940c764d1b475e8b6e96f```
+ ```0xcc396e70afd2b983fa79bf5cd5acc10e0bae87e5421728147e142e4e8726aeaf```
+ ```0xaa926a4091804f38f4e0d675fb2c8ea18fa6c3431165dbd2cfba57c291072ce6```
 
-Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 2 chiavi private per poter importare 2 wallet contenenti degli ETH:
-```6b37d336f42223fb05258a633069bfa0fbc043684005e2444a33f0a43c98a091```
-```95464cac4776ff6ed17a305e28e35d9e58e061ba3bcf1a8212e7cc8344d334b7```
+ Si prega di non mostrare a nessuno queste chiavi private, infatti ognuno di questi 3 wallet contiene 100ETH 😜
 
-Si prega di non mostrare a nessuno queste chiavi private, infatti ognuno di questi 3 wallet contiene degli ETH 😜
 
 Ora è sufficiente utilizzare lo stesso browser in cui si è installato Metamask e navigare all'indirizzo http://tomasrocchetti.ddns.net:3000 per poter utilizzare la nostra app.
 
