@@ -3,8 +3,9 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 import 'openzeppelin-solidity/contracts/token/ERC721/ERC721.sol';
+import 'Interface_Transactions.sol';
 
-contract Transactions is ERC721{
+contract Transactions is ERC721, Interface_Transactions{
 
 /**************************************************************************************************
 indirizzi relativi agli attori hardcoded nel codice
