@@ -104,10 +104,10 @@ class App extends Component {
     }
 
     /**
-    funzione per caricare un prodotto (prodotto trasformato), sia che l'istruzione termina con successo, sia che termina in errore
+    funzione per caricare un prodotto (prodotto lavorato), sia che l'istruzione termina con successo, sia che termina in errore
     viene restituito un messaggio e viene refreshata la pagina.
     viene inoltre effettuata una sanificazione degli input per far si che i valori in ingresso dell'array 
-    contenente la lista dei prodotti usati per la trasformazione siano valori che non mandino in crash il sistema
+    contenente la lista dei prodotti usati per la lavorazione siano valori che non mandino in crash il sistema
     **/
     addProdottoTrasformato(name, gco2, usedProd, quantity) {
         var usedProdContainUint = true;
@@ -125,7 +125,7 @@ class App extends Component {
             window.location.reload();
         });
         } else{
-            window.alert('Hai inserito valori non accettabili tra gli ID dei prodotti usati per le trasformazione');
+            window.alert('Hai inserito valori non accettabili tra gli ID dei prodotti usati nella lavorazione');
             window.location.reload();
         }
     }
@@ -186,7 +186,7 @@ class App extends Component {
     
     /**
     funzione che permette di settare gli indirizzi che hanno il permesso di eseguire le operazioni come
-    produttori e quelli che hanno il permesso di eseguire le operazioni da trasformatori
+    produttori e quelli che hanno il permesso di eseguire le operazioni da produttore
     **/
     async setAddresses(fornitoreAddress, produttoreAddress){
         if(window.web3.utils.isAddress(fornitoreAddress) && window.web3.utils.isAddress(produttoreAddress)){
@@ -370,10 +370,10 @@ class App extends Component {
             </div>
 
 
-                <h5> Inserisci Prodotto trasformato (solo produttore) </h5>
-                Questa funzione ti permette di aggiungere un nuovo prodotto trasformato. Soltanto il wallet con privilegi di produttore può utilizzare questa funzione. inoltre non è necessario inserire un ID, questo verrà generato automaticamente. Per inserire gli ID dei prodotti utilizzati nella trasformazione è sufficiente scrivere gli ID separati da una virgola.
-                 Questa funzione, oltre a generare un nuovo token nel portafoglio di chi ha eseguito la funzione, brucia i token associati ai prodotti lavorati. Per questo motivo è possibile inserire dei prodotti nell elenco dei prodotti usati per la trasformazione solo se si è in possesso di essi, altrimenti verrà restituito un errore.
-                 Un prodotto usato per la trasformazione può sia essere una materia priam che un prodotto già precedentemente trasformato.
+                <h5> Inserisci Prodotto lavorato (solo produttore) </h5>
+                Questa funzione ti permette di aggiungere un nuovo prodotto lavorato. Soltanto il wallet con privilegi di produttore può utilizzare questa funzione. inoltre non è necessario inserire un ID, questo verrà generato automaticamente. Per inserire gli ID dei prodotti utilizzati nella lavorazione è sufficiente scrivere gli ID separati da una virgola.
+                 Questa funzione, oltre a generare un nuovo token nel portafoglio di chi ha eseguito la funzione, brucia i token associati ai prodotti lavorati. Per questo motivo è possibile inserire dei prodotti nell elenco dei prodotti usati nella lavorazione solo se si è in possesso di essi, altrimenti verrà restituito un errore.
+                 Un prodotto usato per la lavorazione può sia essere una materia prima che un prodotto già precedentemente lavorato.
 
                 <form onSubmit={(event) => {
                     event.preventDefault()
@@ -420,7 +420,7 @@ class App extends Component {
                     type="text"
                     ref={(input) => { this.tproductUsedList = input }}
                     className="form-control"
-                    placeholder="Lista Prodotti usati per la trasformazione"
+                    placeholder="Lista Prodotti usati per la lavorazione"
                 required />
             </div>
             <button type="submit" className="btn btn-primary">aggiungi</button>
