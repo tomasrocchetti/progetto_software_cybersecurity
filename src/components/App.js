@@ -109,7 +109,7 @@ class App extends Component {
     viene inoltre effettuata una sanificazione degli input per far si che i valori in ingresso dell'array 
     contenente la lista dei prodotti usati per la lavorazione siano valori che non mandino in crash il sistema
     **/
-    addProdottoTrasformato(name, gco2, usedProd, quantity) {
+    addProdottoLavorato(name, gco2, usedProd, quantity) {
         var usedProdContainUint = true;
         for (var i = 0; i<usedProd.length; i++){
             if (!this.isPositiveInteger(usedProd[i])){
@@ -117,7 +117,7 @@ class App extends Component {
             }
         }
         if(usedProdContainUint){
-            this.state.marketplace.methods.addProdottoTrasformato(name, this.genID(), gco2, usedProd, quantity).send({ from: this.state.account }).on('error', (error) =>{
+            this.state.marketplace.methods.addProdottoLavorato(name, this.genID(), gco2, usedProd, quantity).send({ from: this.state.account }).on('error', (error) =>{
             window.alert('Qualcosa è andato storto, la transazione non è stata completata');
             window.location.reload();
         }).on('confirmation', (confirmation) => {
@@ -253,7 +253,7 @@ class App extends Component {
 
                 <div>
                 <h5> Ottieni info Prodotto</h5>
-                Qui puoi inserire un ID di un prodotto per ottenere le informazioni relative al suo impatto energetico. Se inserisci un ID di un prodotto trasformato verranno anche elencati tutti i prodotti utilizzati per la trasformazione.
+                Qui puoi inserire un ID di un prodotto per ottenere le informazioni relative al suo impatto energetico. Se inserisci un ID di un prodotto lavorato verranno anche elencati tutti i prodotti utilizzati nella lavorazione.
 
                 </div>
                 <form onSubmit={(event) => {
@@ -381,7 +381,7 @@ class App extends Component {
                     const gco2 = this.tproductCo2.value
                     const quantity = this.tproductQty.value
                     const listUsedProd = this.tproductUsedList.value.toString().replace(/\s/g, '').split(',')
-                    this.addProdottoTrasformato(name, gco2, listUsedProd, quantity)
+                    this.addProdottoLavorato(name, gco2, listUsedProd, quantity)
                 }}>
             <div className="form-group mr-sm-2">
                 <input
