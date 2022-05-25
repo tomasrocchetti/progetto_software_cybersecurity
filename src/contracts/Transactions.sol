@@ -9,7 +9,7 @@ contract Transactions is ERC721 {
 /**************************************************************************************************
 indirizzi relativi agli attori hardcoded nel codice
 **************************************************************************************************/
-address produttore;
+address fornitore;
 address trasformatore;
 address cliente;
 
@@ -51,14 +51,14 @@ constructor () ERC721 ("carbonfootprint", "CBF"){}
 /**************************************************************************************************
 funzione per aggiungere un nuovo prodotto (materia prima), chiede in ingresso tutti gli attributi
 necessari alla definizione di una nuova materia prima, richiede che l'indirizzo di chi invoca la 
-funzione sia l'indirizzo di un produttore, inoltre richiede che l'ID che si è inserito per il nuovo 
+funzione sia l'indirizzo di un fornitore, inoltre richiede che l'ID che si è inserito per il nuovo 
 prodotto non sia gia stato usato.
 Viene anche generato un token associato al prodotto inserito
 **************************************************************************************************/
 function addMateriaPrima(string memory _name, uint _ID,  uint _gCO2, uint _quantity) public {
        
-       // si assicura che sia soltanto il produttore ad aggiungere nuove materie prime
-       require(msg.sender == produttore);
+       // si assicura che sia soltanto il fornitore ad aggiungere nuove materie prime
+       require(msg.sender == fornitore);
        require(!idExist(_ID));
        
        Product storage prod = Products[_ID];
@@ -196,11 +196,11 @@ function idExist(uint _ID) view public returns (bool){
 
 
 /**************************************************************************************************
-serve per configurare gli indirizzi che hanno il permesso di eseguire operazioni da produttore
+serve per configurare gli indirizzi che hanno il permesso di eseguire operazioni da fornitore
 e quelli che hanno il permesso di eseguire operazioni da trasformatore
 **************************************************************************************************/ 
-function setAddresses(address customProduttore, address customTrasformatore) public{
-    produttore = customProduttore;
+function setAddresses(address customFornitore, address customTrasformatore) public{
+    fornitore = customFornitore;
     trasformatore = customTrasformatore;
     }
     
