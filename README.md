@@ -44,7 +44,7 @@ Questa funzione incorpora tecniche di sanificazione dell'input per verificare ch
 Questo blocco è utilizzabile soltanto dall'indirizzo del fornitore e permette di inserire nella lista di prodotti una nuova materia prima. La nuova materia prima inserita avrà associato un ID generato automaticamente in base alla data e all'ora. Insieme alla materia prima viene creato un NFT ad essa associato, con il medesimo ID. E viene accreditato nel portafogli di chi ha eseguito l'operazione di inserimento.
 ![materia_prima](/images/materia_prima.png)
 
-#### 5️⃣ inserisci prodotto trasformato
+#### 5️⃣ inserisci prodotto lavorato
 Questo blocco è utilizzabile soltanto dall'indirizzo del produttore e permette di inserire nella lista dei prodotti un nuovo prodotto lavorato. Come nel caso dell'inserimento della materia prima viene generato un ID e viene generato un token associato al prodotto trasformato inserito. 
 
 Nella fase di inserimento è possibile aggiungere la lista degli ID dei prodotti utilizzati per la lavorazione (ad esempio aggiungo farina e uova per produrre la pasta).  
