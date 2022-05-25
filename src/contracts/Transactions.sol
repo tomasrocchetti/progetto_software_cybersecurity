@@ -7,7 +7,7 @@ import 'openzeppelin-solidity/contracts/token/ERC721/ERC721.sol';
 contract Transactions is ERC721 {
 
 /**************************************************************************************************
-indirizzi relativi agli attori hardcoded nel codice
+indirizzi relativi agli attori, potranno essere settati a piacimento
 **************************************************************************************************/
 address fornitore;
 address produttore;
@@ -20,10 +20,10 @@ struttura che definisce il tipo Product, ovvero il prodotto e tutti i suoi attri
 struct Product {
     string name;    // nome del prodotto
     uint ID;  // identificativo univoco del prodotto (similmente al numero di lotto)
-    uint gCO2;  // grammi di CO2 usati per produrre una materia prima o per la trasformazione di un prodotto
+    uint gCO2;  // grammi di CO2 usati per produrre una materia prima o per la lavorazione di un prodotto
     bool isProcessed;   // 0 se è una materia prima, 1 se è un prodotto derivato
     uint[] productsUsedToProcessIDs;    // se si tratta di un prodotto derivato elencare tutti gli ID delle materie prime usate. [N.B. E' un array]
-    uint quantity;  //quantità di prodotto, utile anche nel caso in cui per un prodotto trasformato venga usata solo una parte di un lotto di materia prima
+    uint quantity;  //quantità di prodotto, utile anche nel caso in cui per un prodotto lavorato venga usata solo una parte di un lotto di materia prima
     }
 
 
@@ -39,7 +39,7 @@ uint[] public productIDs;
 definizione degli eventi 
 **************************************************************************************************/
 event newMateriaPrima (string name, uint ID, uint gCO2, uint quantity);
-event newProdottoTrasformato (string name, uint ID, uint sommaCO2, uint[] productsUsedToProcessID, uint quantity);
+event newProdottoLavorato (string name, uint ID, uint sommaCO2, uint[] productsUsedToProcessID, uint quantity);
 
 
 /**************************************************************************************************
@@ -51,8 +51,8 @@ constructor () ERC721 ("carbonfootprint", "CBF"){}
 /**************************************************************************************************
 funzione per aggiungere un nuovo prodotto (materia prima), chiede in ingresso tutti gli attributi
 necessari alla definizione di una nuova materia prima, richiede che l'indirizzo di chi invoca la 
-funzione sia l'indirizzo di un fornitore, inoltre richiede che l'ID che si è inserito per il nuovo 
-prodotto non sia gia stato usato.
+funzione sia l'indirizzo di un fornitore, inoltre richiede che l'ID che si è inserito per la nuova 
+materia prima non sia gia stato usato.
 Viene anche generato un token associato al prodotto inserito
 **************************************************************************************************/
 function addMateriaPrima(string memory _name, uint _ID,  uint _gCO2, uint _quantity) public {
@@ -76,21 +76,21 @@ function addMateriaPrima(string memory _name, uint _ID,  uint _gCO2, uint _quant
 
 
 /**************************************************************************************************
-funzione per aggiungere un nuovo prodotto (prodotto trasformato), chiede in ingresso tutti gli 
+funzione per aggiungere un nuovo prodotto (prodotto lavorato), chiede in ingresso tutti gli 
 attributi necessari alla definizione di una nuovo prodotto, quindi anche le materie prime o altri 
-prodotti usati per la trasformazione.
+prodotti usati per la lavorazione.
 Richiede che l'indirizzo di chi invoca la funzione sia l'indirizzo di un produttore, 
 inoltre richiede che l'ID che si è inserito per il nuovo prodotto
 non sia gia stato usato.
-vengono sommati i valori del carbon footprint dei prodotti usati per la trasformazione.
+vengono sommati i valori del carbon footprint dei prodotti usati per la lavorazione.
 Viene generato un token associato al prodotto inserito e vengono bruciati i token dei
-prodotti usati per la trasformazione, per questo motivo è necessario che i token dei prodotti usati 
-per la trasformazione siano di proprietà dell'indirizzo che invoca la funzione
-Sarebbe possibile accorpare addProdottoTrasformato con addMateriaPrima, nonostante ciò è stato 
+prodotti usati nella lavorazione, per questo motivo è necessario che i token dei prodotti usati 
+per la lavorazione siano di proprietà dell'indirizzo che invoca la funzione
+Sarebbe possibile accorpare addProdottoLavorato con addMateriaPrima, nonostante ciò è stato 
 deciso di separare completamente le due funzioni per dare maggiore madularità al programma, e per 
 modificarlo in futuro
 **************************************************************************************************/
-function addProdottoTrasformato(string memory _name, uint _ID,  uint _gCO2_production, uint[] memory _productsUsedToProcessID, uint _quantity) public {
+function addProdottoLavorato(string memory _name, uint _ID,  uint _gCO2_production, uint[] memory _productsUsedToProcessID, uint _quantity) public {
        
        // si assicura che sia soltanto il produttore ad aggiungere nuovi prodotti 
        require(msg.sender == produttore);
@@ -115,7 +115,7 @@ function addProdottoTrasformato(string memory _name, uint _ID,  uint _gCO2_produ
 
         productIDs.push(_ID);
        
-        emit newProdottoTrasformato(_name, _ID, sommaCO2, _productsUsedToProcessID, _quantity);
+        emit newProdottoLavorato(_name, _ID, sommaCO2, _productsUsedToProcessID, _quantity);
         _mint(msg.sender, _ID);
     }
     
@@ -166,7 +166,7 @@ function getNameByID(uint _ID) view public returns (string memory){
    
    
 /**************************************************************************************************
-restituisce l'array contenente la lista dei prodotti utilizzati per la trasformazione
+restituisce l'array contenente la lista dei prodotti utilizzati per la lavorazione
 **************************************************************************************************/    
 function getUsedProductForTransform(uint _ID) view public returns (uint[] memory){
     return Products[_ID].productsUsedToProcessIDs;
