@@ -188,9 +188,9 @@ class App extends Component {
     funzione che permette di settare gli indirizzi che hanno il permesso di eseguire le operazioni come
     produttori e quelli che hanno il permesso di eseguire le operazioni da trasformatori
     **/
-    async setAddresses(produttoreAddress, trasformatoreAddress){
-        if(window.web3.utils.isAddress(produttoreAddress) && window.web3.utils.isAddress(produttoreAddress)){
-            await this.state.marketplace.methods.setAddresses(produttoreAddress, trasformatoreAddress).send({ from: this.state.account }).on('error', (error) =>{
+    async setAddresses(fornitoreAddress, trasformatoreAddress){
+        if(window.web3.utils.isAddress(fornitoreAddress) && window.web3.utils.isAddress(fornitoreAddress)){
+            await this.state.marketplace.methods.setAddresses(fornitoreAddress, trasformatoreAddress).send({ from: this.state.account }).on('error', (error) =>{
                 window.alert('Qualcosa è andato storto, gli indirizzi non sono stati settati');
                 window.location.reload();
             }).on('confirmation', (confirmation) => {
@@ -222,8 +222,8 @@ class App extends Component {
                 <form onSubmit={(event) => {
                     event.preventDefault()
                     const trasformatoreAddress = this.trasformatoreAddress.value
-                    const produttoreAddress = this.produttoreAddress.value
-                    this.setAddresses(produttoreAddress, trasformatoreAddress)
+                    const fornitoreAddress = this.fornitoreAddress.value
+                    this.setAddresses(fornitoreAddress, trasformatoreAddress)
                     }}>
                 <div className="form-group mr-sm-2">
                     <input
@@ -238,9 +238,9 @@ class App extends Component {
                     <input
                         id="productPrice"
                         type="text"
-                        ref={(input) => { this.produttoreAddress = input }}
+                        ref={(input) => { this.fornitoreAddress = input }}
                         className="form-control"
-                        placeholder="Indirizzo produttore"
+                        placeholder="Indirizzo fornitore"
                     required />
                 </div>
                 <button type="submit" className="btn btn-primary">configura indirizzi</button>
@@ -320,8 +320,8 @@ class App extends Component {
                 </div>
 
 
-                <h5> Inserisci Materia prima (solo produttore) </h5>
-                Questa funzione ti permette di aggiungere una nuova materia prima. Soltanto il wallet con privilegi di produttore può utilizzare questa funzione. inoltre non è necessario inserire un ID, questo verrà generato automaticamente.
+                <h5> Inserisci Materia prima (solo fornitore) </h5>
+                Questa funzione ti permette di aggiungere una nuova materia prima. Soltanto il wallet con privilegi di fornitore può utilizzare questa funzione. inoltre non è necessario inserire un ID, questo verrà generato automaticamente.
                 Questa funzione genera un Token con stesso id del prodotto e lo aggiunge al wallet dell indirizzo che ha aggiunto la materia prima.
                 <form onSubmit={(event) => {
                     event.preventDefault()
