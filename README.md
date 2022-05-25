@@ -4,12 +4,12 @@
 Questa applicazione ci permette di tenere traccia di tutte le emissioni di CO2 emesse nel ciclo di vita di un prodotto, dalla produzione della materia prima all'arrivo del prodotto al consumatore, passando per le varie trasformazioni che possono essere fatte su un prodotto.
 
 Possiamo schematizzare il funzionamento in questo modo:
-- Un fornitore produce una materia prima (ad esempio acqua, uova, grano).
-- Il fornitore trasferisce la pripria materia prima ad un trasformatore.
-- Il trasformatore utilizza le materie prime in proprio possesso per generare un prodotto lavorato (ad esemprio trasforma il grano in farina).
-- Il trasformatore ora può proseguire in 2 direzioni:
-   - Trasferire il prodotto trasformato direttamente ad un cliente.
-   - Trasferire il prodotto trasformato ad un altro trasformatore (ad esempio vende la farina ad un trasformatore per produrre pasta).
+- Un fornitore fornisce una materia prima (ad esempio acqua, uova, grano).
+- Il fornitore trasferisce la pripria materia prima ad un produttore.
+- Il produttore utilizza le materie prime in proprio possesso per produrre un prodotto lavorato (ad esemprio trasforma il grano in farina).
+- Il produttore ora può proseguire in 2 direzioni:
+   - Trasferire il prodotto lavorato direttamente ad un cliente.
+   - Trasferire il prodotto lavorato ad un altro produttore (ad esempio vende la farina ad un produttore per produrre pasta).
 - Chiunque puo leggere le informazioni sul carbon footprint e tracciare la storia di trasformazione dei prodotti
 
 Ovviamente per completare la trasformazione di un prodotto verrà emessa una certa quantità di CO2, pertanto quando viene generato un prodotto trasformato si sommano i Carbon Footprint delle materie prime alla quantità di CO2 emessa in fase di trasformazione.
@@ -21,13 +21,13 @@ Ogni prodotto è direttamnte associato ad un NFT per garantire l'autenticità de
 L'interfaccia utente è stata suddivisa in 6 blocchi, ciascuno con una specifica funzione, analizziamo quindi i blocchi uno ad uno:
 
 #### 1️⃣ Configura indirizzi
-Questo blocco permette di scegliere quale indirizzo ha la possibilità di eseguire le operazioni con i privilegi di fornitore (ovvero aggiungere materie prime) e quale indirizzo ha la possibilità di eseguire operazioni con i privilegi di trasformatore (ovvero aggiungere prodotti trasformati).  
+Questo blocco permette di scegliere quale indirizzo ha la possibilità di eseguire le operazioni con i privilegi di fornitore (ovvero aggiungere materie prime) e quale indirizzo ha la possibilità di eseguire operazioni con i privilegi di produttore (ovvero aggiungere prodotti trasformati).  
 Questa funzione puo essere utilizzata qualsiasi sia l'indirizzo che invoca il contratto. È soltanto una funzione per fare dei test con l'applicazione.
 ![indirizzi](/images/indirizzi.png)
 
 #### 2️⃣ Leggi informazioni prodotto
-Questo blocco permette, dato un ID, di ottenere tutte le informazioni di un prodotto, tra cui l'indirizzo del possessore del token associato a quel prodotto e una lista dei prodotti utilizzati nella trasformazione.  
-È importante specificare che se l'indirizzo del possessore dovesse essere ```0x0000000000000000000000000``` significa che quel prodotto è gia stato utilizzato in una trasformazione, pertanto non esiste più (come ad esmpio il grano dopo che sia gia stata prodotta la farina).
+Questo blocco permette, dato un ID, di ottenere tutte le informazioni di un prodotto, tra cui l'indirizzo del possessore del token associato a quel prodotto e una lista dei prodotti utilizzati nella lavorazione.  
+È importante specificare che se l'indirizzo del possessore dovesse essere ```0x0000000000000000000000000``` significa che quel prodotto è gia stato utilizzato in una lavorazione, pertanto non esiste più (come ad esmpio il grano dopo che sia gia stata prodotta la farina).
 ![read_info](/images/read_info.png)
 
 Nel momento in cui viene premuto il tasto di conferma il sito restituisce un alert con tutte le informazioni riguardanti il prodotto.
@@ -45,14 +45,14 @@ Questo blocco è utilizzabile soltanto dall'indirizzo del fornitore e permette d
 ![materia_prima](/images/materia_prima.png)
 
 #### 5️⃣ inserisci prodotto trasformato
-Questo blocco è utilizzabile soltanto dall'indirizzo del trasformatore e permette di inserire nella lista dei prodotti un nuovo prodotto trasformato. Come nel caso dell'inserimento della materia prima viene generato un ID e viene generato un token associato al prodotto trasformato inserito. 
+Questo blocco è utilizzabile soltanto dall'indirizzo del produttore e permette di inserire nella lista dei prodotti un nuovo prodotto lavorato. Come nel caso dell'inserimento della materia prima viene generato un ID e viene generato un token associato al prodotto trasformato inserito. 
 
-Nella fase di inserimento è possibile aggiungere la lista degli ID dei prodotti utilizzati per la trasformazione (ad esempio aggiungo farina e uova per produrre la pasta).  
-Nella lista di prodotti utilizzati, ovviamente, è possibile inserire solo prodotti di proprietà dello stesso indirizzo che utilizza la funzione di inserimento del prodotto trasformato, altrimenti all'utente viene segnalato un errore.  
-I prodotti usati per la trasformazione non esistono più, pertanto gli NFT associati ad essi vengono bruciati 🔥.  
-Viene generato un nuovo NFT associato al nuovo prodotto trasformato e viene aggiunto al wallet di chi ha fatto l'inserimento. 
+Nella fase di inserimento è possibile aggiungere la lista degli ID dei prodotti utilizzati per la lavorazione (ad esempio aggiungo farina e uova per produrre la pasta).  
+Nella lista di prodotti utilizzati, ovviamente, è possibile inserire solo prodotti di proprietà dello stesso indirizzo che utilizza tale funzione, altrimenti all'utente viene segnalato un errore.  
+I prodotti usati per la lavorazione non esistono più, pertanto gli NFT associati ad essi vengono bruciati 🔥.  
+Viene generato un nuovo NFT associato al nuovo prodotto lavorato e viene aggiunto al wallet di chi ha fatto l'inserimento. 
 
-La quantità di CO2 generata nella trasformazione viene sommata ai carbon footprint dei prodotti utilizzati nella trasformaizone.
+La quantità di CO2 generata nella lavorazione viene sommata ai carbon footprint dei prodotti utilizzati in essa.
 ![prodotto_trasfo](/images/prodotto_trasfo.png)
 
 #### 6️⃣ Lista prodotti
