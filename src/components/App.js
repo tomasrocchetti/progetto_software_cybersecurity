@@ -217,7 +217,7 @@ class App extends Component {
         
                 <div>
                 <h5> Configura Indirizzi</h5>
-                Questa funzione ti permette di settare un indirizzo che sia in grado che abbia i privilegi di produttore e un indirizzo che abbia i privilegi da produttore. Puoi inserire un qualsiasi indirizzo tra quelli che ha generato la tua blockchian locale.
+                Questa funzione ti permette di associare a fornitore e produttore i relativi indirizzi. Puoi inserire un qualsiasi indirizzo tra quelli che ha generato la tua blockchian locale.
                 </div>
                 <form onSubmit={(event) => {
                     event.preventDefault()
