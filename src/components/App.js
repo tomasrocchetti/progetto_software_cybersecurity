@@ -188,9 +188,9 @@ class App extends Component {
     funzione che permette di settare gli indirizzi che hanno il permesso di eseguire le operazioni come
     produttori e quelli che hanno il permesso di eseguire le operazioni da trasformatori
     **/
-    async setAddresses(fornitoreAddress, trasformatoreAddress){
-        if(window.web3.utils.isAddress(fornitoreAddress) && window.web3.utils.isAddress(fornitoreAddress)){
-            await this.state.marketplace.methods.setAddresses(fornitoreAddress, trasformatoreAddress).send({ from: this.state.account }).on('error', (error) =>{
+    async setAddresses(fornitoreAddress, produttoreAddress){
+        if(window.web3.utils.isAddress(fornitoreAddress) && window.web3.utils.isAddress(produttoreAddress)){
+            await this.state.marketplace.methods.setAddresses(fornitoreAddress, produttoreAddress).send({ from: this.state.account }).on('error', (error) =>{
                 window.alert('Qualcosa è andato storto, gli indirizzi non sono stati settati');
                 window.location.reload();
             }).on('confirmation', (confirmation) => {
@@ -217,21 +217,21 @@ class App extends Component {
         
                 <div>
                 <h5> Configura Indirizzi</h5>
-                Questa funzione ti permette di settare un indirizzo che sia in grado che abbia i privilegi di trasformatore e un indirizzo che abbia i privilegi da trasformatore. Puoi inserire un qualsiasi indirizzo tra quelli che ha generato la tua blockchian locale.
+                Questa funzione ti permette di settare un indirizzo che sia in grado che abbia i privilegi di produttore e un indirizzo che abbia i privilegi da produttore. Puoi inserire un qualsiasi indirizzo tra quelli che ha generato la tua blockchian locale.
                 </div>
                 <form onSubmit={(event) => {
                     event.preventDefault()
-                    const trasformatoreAddress = this.trasformatoreAddress.value
+                    const produttoreAddress = this.produttoreAddress.value
                     const fornitoreAddress = this.fornitoreAddress.value
-                    this.setAddresses(fornitoreAddress, trasformatoreAddress)
+                    this.setAddresses(fornitoreAddress, produttoreAddress)
                     }}>
                 <div className="form-group mr-sm-2">
                     <input
                         id="productPrice"
                         type="text"
-                        ref={(input) => { this.trasformatoreAddress = input }}
+                        ref={(input) => { this.produttoreAddress = input }}
                         className="form-control"
-                        placeholder="Indirizzo trasformatore"
+                        placeholder="Indirizzo produttore"
                     required />
                 </div>
                 <div className="form-group mr-sm-2">
@@ -370,8 +370,8 @@ class App extends Component {
             </div>
 
 
-                <h5> Inserisci Prodotto trasformato (solo trasformatore) </h5>
-                Questa funzione ti permette di aggiungere un nuovo prodotto trasformato. Soltanto il wallet con privilegi di trasformatore può utilizzare questa funzione. inoltre non è necessario inserire un ID, questo verrà generato automaticamente. Per inserire gli ID dei prodotti utilizzati nella trasformazione è sufficiente scrivere gli ID separati da una virgola.
+                <h5> Inserisci Prodotto trasformato (solo produttore) </h5>
+                Questa funzione ti permette di aggiungere un nuovo prodotto trasformato. Soltanto il wallet con privilegi di produttore può utilizzare questa funzione. inoltre non è necessario inserire un ID, questo verrà generato automaticamente. Per inserire gli ID dei prodotti utilizzati nella trasformazione è sufficiente scrivere gli ID separati da una virgola.
                  Questa funzione, oltre a generare un nuovo token nel portafoglio di chi ha eseguito la funzione, brucia i token associati ai prodotti lavorati. Per questo motivo è possibile inserire dei prodotti nell elenco dei prodotti usati per la trasformazione solo se si è in possesso di essi, altrimenti verrà restituito un errore.
                  Un prodotto usato per la trasformazione può sia essere una materia priam che un prodotto già precedentemente trasformato.
 
