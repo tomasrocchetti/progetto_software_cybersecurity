@@ -4,8 +4,8 @@
 Questa applicazione ci permette di tenere traccia di tutte le emissioni di CO2 emesse nel ciclo di vita di un prodotto, dalla produzione della materia prima all'arrivo del prodotto al consumatore, passando per le varie trasformazioni che possono essere fatte su un prodotto.
 
 Possiamo schematizzare il funzionamento in questo modo:
-- Un produttore produce una materia prima (ad esempio acqua, uova, grano).
-- Il produttore trasferisce la pripria materia prima ad un trasformatore.
+- Un fornitore produce una materia prima (ad esempio acqua, uova, grano).
+- Il fornitore trasferisce la pripria materia prima ad un trasformatore.
 - Il trasformatore utilizza le materie prime in proprio possesso per generare un prodotto lavorato (ad esemprio trasforma il grano in farina).
 - Il trasformatore ora può proseguire in 2 direzioni:
    - Trasferire il prodotto trasformato direttamente ad un cliente.
@@ -21,7 +21,7 @@ Ogni prodotto è direttamnte associato ad un NFT per garantire l'autenticità de
 L'interfaccia utente è stata suddivisa in 6 blocchi, ciascuno con una specifica funzione, analizziamo quindi i blocchi uno ad uno:
 
 #### 1️⃣ Configura indirizzi
-Questo blocco permette di scegliere quale indirizzo ha la possibilità di eseguire le operazioni con i privilegi di produttore (ovvero aggiungere materie prime) e quale indirizzo ha la possibilità di eseguire operazioni con i privilegi di trasformatore (ovvero aggiungere prodotti trasformati).  
+Questo blocco permette di scegliere quale indirizzo ha la possibilità di eseguire le operazioni con i privilegi di fornitore (ovvero aggiungere materie prime) e quale indirizzo ha la possibilità di eseguire operazioni con i privilegi di trasformatore (ovvero aggiungere prodotti trasformati).  
 Questa funzione puo essere utilizzata qualsiasi sia l'indirizzo che invoca il contratto. È soltanto una funzione per fare dei test con l'applicazione.
 ![indirizzi](/images/indirizzi.png)
 
@@ -41,7 +41,7 @@ Questa funzione incorpora tecniche di sanificazione dell'input per verificare ch
 ![token_transfer](/images/token_transfer.png)
 
 #### 4️⃣ Inserisci materia prima
-Questo blocco è utilizzabile soltanto dall'indirizzo del produttore e permette di inserire nella lista di prodotti una nuova materia prima. La nuova materia prima inserita avrà associato un ID generato automaticamente in base alla data e all'ora. Insieme alla materia prima viene creato un NFT ad essa associato, con il medesimo ID. E viene accreditato nel portafogli di chi ha eseguito l'operazione di inserimento.
+Questo blocco è utilizzabile soltanto dall'indirizzo del fornitore e permette di inserire nella lista di prodotti una nuova materia prima. La nuova materia prima inserita avrà associato un ID generato automaticamente in base alla data e all'ora. Insieme alla materia prima viene creato un NFT ad essa associato, con il medesimo ID. E viene accreditato nel portafogli di chi ha eseguito l'operazione di inserimento.
 ![materia_prima](/images/materia_prima.png)
 
 #### 5️⃣ inserisci prodotto trasformato
