@@ -71,16 +71,16 @@ Una volta installato e inizializzato Metemask è opportuno configurarlo per perm
  **Chain ID:** ```1337```
 
  Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 3 chiavi private per poter importare 3 wallet della nostra blockchain di prova in metamask:
- ```0xcf21728b2134d0abcf6c1c9e78cf3746c20715d43c5940c764d1b475e8b6e96f```
- ```0xcc396e70afd2b983fa79bf5cd5acc10e0bae87e5421728147e142e4e8726aeaf```
- ```0xaa926a4091804f38f4e0d675fb2c8ea18fa6c3431165dbd2cfba57c291072ce6```
+ ```8f6b4cbcd0f8f273a477509e6dfe596b6a79c0079e46c0844ed366db3870eed0```
+ ```48718b17ed1e793d31c2aee6dee2a50f2253abf934478a6f4a522cec611b47f9```
+ ```3fcfb5a11b73b3f3933abcb5f97b0931df5e5607fe31b189ec5f25fe4144ab93```
 
  Si prega di non mostrare a nessuno queste chiavi private, infatti ognuno di questi 3 wallet contiene 100ETH 😜
 
 
 Ora è sufficiente utilizzare lo stesso browser in cui si è installato Metamask e navigare all'indirizzo http://tomasrocchetti.ddns.net:3000 per poter utilizzare la nostra app.
 
-Se vuoi puoi importare in Metamask gli NFT che vengono generati con l'inserimento di nuovi prodotti. Per farlo è sufficiente aprire Metamask e andare in ```account > import tokens``` e inserire l'indirizzo del contratto deployato nella blockchain di prova, ovvero ```0xa21246e22dD83F3e06B138cC6CdD673e275c9B1e```
+Se vuoi puoi importare in Metamask gli NFT che vengono generati con l'inserimento di nuovi prodotti. Per farlo è sufficiente aprire Metamask e andare in ```account > import tokens``` e inserire l'indirizzo del contratto deployato nella blockchain di prova, ovvero ```0xCaF004C909808EBD09F7428C510C48cdc9D5042c```
 
 Divertitevi con la nostra app e prestate attenzione alle emissioni di CO2 🌿
 
