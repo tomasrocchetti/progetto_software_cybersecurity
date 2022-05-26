@@ -70,10 +70,10 @@ Una volta installato e inizializzato Metemask è opportuno configurarlo per perm
  **URL RPC:** ```http://tomasrocchetti.ddns.net:8545```  
  **Chain ID:** ```1337```
 
- Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 3 chiavi private per poter importare 3 wallet della nostra blockchain di prova in metamask:
+ Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 3 chiavi private per poter importare 3 wallet della nostra blockchain di prova in metamask: 
  ```8f6b4cbcd0f8f273a477509e6dfe596b6a79c0079e46c0844ed366db3870eed0```
- ```48718b17ed1e793d31c2aee6dee2a50f2253abf934478a6f4a522cec611b47f9```
- ```3fcfb5a11b73b3f3933abcb5f97b0931df5e5607fe31b189ec5f25fe4144ab93```
+ ```48718b17ed1e793d31c2aee6dee2a50f2253abf934478a6f4a522cec611b47f9``` 
+ ```3fcfb5a11b73b3f3933abcb5f97b0931df5e5607fe31b189ec5f25fe4144ab93``` 
 
  Si prega di non mostrare a nessuno queste chiavi private, infatti ognuno di questi 3 wallet contiene 100ETH 😜
 
