@@ -123,6 +123,10 @@ Installare inoltre le librerie OpenZeppelin, saranno necessarie per l'utilizzo d
 ```
 npm install --save-exact openzeppelin-solidity
 ```
+Si consiglia si installare globalmente Truffle con
+```
+npm install -g truffle
+```
 Compilare lo smart contract con
 ```
 truffle compile
