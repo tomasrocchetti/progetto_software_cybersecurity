@@ -70,17 +70,17 @@ Una volta installato e inizializzato Metemask è opportuno configurarlo per perm
  **URL RPC:** ```HTTP://tomasrocchetti.ddns.net:8545```  
  **Chain ID:** ```1337```
 
- Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 3 chiavi private per poter importare 3 wallet della nostra blockchain di prova in metamask: 
- ```f86b86eaed56da4e9fbb827fa73eb550fc9956f1f3958a9793e0f0f483711942``` 
- ```13ec78b46f5edc0a0d995c7ad31db77e497c011d37cf861e3ce1d6c581195bd8``` 
- ```5f3138f77426f5a710c62f62d0e02df5ac3ac043de0128dc42617ca76e9a3335``` 
+ Ora che Metamask è finalmente in grado di interagire con la nostra blockchain di prova è possibile importare dei wallet preconfigurati. Lasciamo 3 chiavi private per poter importare 3 wallet della nostra blockchain di prova in metamask:  
+ ```aa4a940705263ee96f83ad605c0752a8fe8100aa439fa7a78efc19da69fb654d``` 
+ ```3d2993b657bffb0a1f37935e4805117d21697ce61273b9b16c37e8c174352fbd``` 
+ ```95ea62b9257ba723cc4860280bb720842e0d7d49eccab4880fe4965abe793636``` 
 
  Si prega di non mostrare a nessuno queste chiavi private, infatti ognuno di questi 3 wallet contiene 100ETH 😜
 
 
 Ora è sufficiente utilizzare lo stesso browser in cui si è installato Metamask e navigare all'indirizzo http://tomasrocchetti.ddns.net:3000 per poter utilizzare la nostra app.
 
-Se vuoi puoi importare in Metamask gli NFT che vengono generati con l'inserimento di nuovi prodotti. Per farlo è sufficiente aprire Metamask e andare in ```account > import tokens``` e inserire l'indirizzo del contratto deployato nella blockchain di prova, ovvero ```0x50D5A773cDfef0c31946d4f1395cC24B715f2DcD```
+Se vuoi puoi importare in Metamask gli NFT che vengono generati con l'inserimento di nuovi prodotti. Per farlo è sufficiente aprire Metamask e andare in ```account > import tokens``` e inserire l'indirizzo del contratto deployato nella blockchain di prova, ovvero ```0x5C901B6C024c98a150B3a8D0DdE873169f78Ed87```
 
 Divertitevi con la nostra app e prestate attenzione alle emissioni di CO2 🌿
 
